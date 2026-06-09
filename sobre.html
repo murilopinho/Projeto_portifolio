@@ -4,324 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre — Murilo Pinho · Dev + IA · Brasília</title>
-  <meta name="description" content="Dev + IA sediado em Brasília. QA Analyst no BRB Card por 18 meses. Fundador da MP Soluções Digitais. ISTQB CTFL, Agile Tester e 10× certificado Anthropic.">
+  <meta name="description" content="QA Analyst no BRB Card por 18 meses. Fundador da MP Soluções Digitais. ISTQB CTFL, Agile Tester e 10× certificado Anthropic. Dev + IA em Brasília, DF.">
+
+  <meta property="og:title"       content="Sobre — Murilo Pinho · Dev + IA · Brasília">
+  <meta property="og:description" content="QA Analyst no BRB Card por 18 meses. Fundador da MP Soluções Digitais. ISTQB CTFL, Agile Tester e 10× certificado Anthropic.">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://murilopinho.com.br/sobre.html">
+  <meta property="og:image"       content="https://murilopinho.com.br/assets/images/og-cover.jpg">
+  <meta property="og:locale"      content="pt_BR">
+  <meta name="twitter:card"       content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/shared.css">
-  <style>
-    /* ── SOBRE HERO ── */
-    #sobre-hero {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 110px var(--pad-x) 64px;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
-    }
-    .sobre-hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80&fit=crop&auto=format'); /* FOTO BANCO — substituir por foto real */
-      background-size: cover;
-      background-position: center top;
-      z-index: 0;
-      opacity: 0.12;
-    }
-    .sobre-hero-content { position: relative; z-index: 1; }
-    .sobre-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-      display: block;
-    }
-    .sobre-name {
-      font-family: var(--font-display);
-      font-size: clamp(56px, 10vw, 160px);
-      line-height: 0.88;
-      margin-bottom: 40px;
-    }
-    .sobre-name em { font-style: italic; color: var(--mid); }
-    .sobre-hero-foot {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      max-width: 900px;
-    }
-    .sobre-hero-bio {
-      font-size: 16px;
-      color: var(--mid);
-      line-height: 1.75;
-    }
-    .sobre-hero-bio strong { color: var(--fg); font-weight: 500; }
-    .sobre-hero-links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      justify-content: flex-end;
-    }
-
-    /* ── FILOSOFIA ── */
-    #filosofia {
-      padding: 120px var(--pad-x);
-      border-bottom: 1px solid var(--line);
-    }
-    .filosofia-text {
-      font-family: var(--font-display);
-      font-size: clamp(24px, 3.5vw, 52px);
-      font-style: italic;
-      line-height: 1.2;
-      max-width: 900px;
-      color: var(--fg);
-    }
-    .filosofia-text em { color: var(--accent); font-style: normal; }
-
-    /* ── EXPERIÊNCIA ── */
-    #experiencia {
-      padding: 120px var(--pad-x);
-      border-bottom: 1px solid var(--line);
-    }
-    .exp-header {
-      margin-bottom: 64px;
-    }
-    .section-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-      display: block;
-    }
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 5vw, 64px);
-      font-style: italic;
-    }
-
-    .exp-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .exp-card {
-      background: var(--bg-2);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 40px;
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s;
-    }
-    .exp-card:hover { border-color: var(--line-2); }
-    .exp-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--accent), transparent);
-    }
-    .exp-card-period {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-    .exp-card-role {
-      font-family: var(--font-display);
-      font-size: 32px;
-      font-style: italic;
-      line-height: 1.1;
-      margin-bottom: 6px;
-    }
-    .exp-card-company {
-      font-size: 14px;
-      color: var(--mid);
-      margin-bottom: 24px;
-    }
-    .exp-card-desc {
-      font-size: 14px;
-      color: var(--mid);
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    .exp-card-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    /* ── SKILLS DETALHADAS ── */
-    #skills {
-      padding: 120px var(--pad-x);
-      border-bottom: 1px solid var(--line);
-    }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 64px;
-    }
-    .skill-group {
-      background: var(--bg-2);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 36px;
-      transition: border-color 0.3s;
-    }
-    .skill-group:hover { border-color: var(--line-2); }
-    .skill-group-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-    }
-    .skill-group-title {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-style: italic;
-      margin-bottom: 28px;
-    }
-    .skill-bar-item {
-      margin-bottom: 18px;
-    }
-    .skill-bar-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-    .skill-bar-name {
-      font-size: 13px;
-      color: var(--fg);
-    }
-    .skill-bar-level {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--mid);
-    }
-    .skill-bar-level.top { color: var(--accent); }
-    .skill-bar-track {
-      height: 2px;
-      background: var(--line);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-    .skill-bar-fill {
-      height: 100%;
-      background: linear-gradient(to right, var(--accent), var(--accent-2));
-      border-radius: 100px;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.8s var(--ease-out);
-    }
-    .skill-group.visible .skill-bar-fill { transform: scaleX(1); }
-
-    /* ── CERTIFICAÇÕES ── */
-    #certificacoes {
-      padding: 120px var(--pad-x);
-      border-bottom: 1px solid var(--line);
-    }
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 64px;
-    }
-    .cert-card {
-      background: var(--bg-2);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .cert-card:hover { border-color: var(--line-2); transform: translateY(-4px); }
-    .cert-badge {
-      font-size: 32px;
-    }
-    .cert-org {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-    .cert-name {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--fg);
-      line-height: 1.4;
-    }
-    .cert-status {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #22c55e;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .cert-status::before {
-      content: '';
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: #22c55e;
-      flex-shrink: 0;
-    }
-    .cert-status.pending { color: var(--mid); }
-    .cert-status.pending::before { background: var(--mid); }
-
-    /* ── CV CTA ── */
-    #cv-cta {
-      padding: 100px var(--pad-x);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-      flex-wrap: wrap;
-      border-bottom: 1px solid var(--line);
-      background: var(--bg-2);
-    }
-    .cv-cta-text {}
-    .cv-cta-title {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 4vw, 52px);
-      font-style: italic;
-      margin-bottom: 12px;
-    }
-    .cv-cta-sub {
-      font-size: 14px;
-      color: var(--mid);
-    }
-    .cv-cta-actions {
-      display: flex;
-      gap: 12px;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .sobre-hero-foot { grid-template-columns: 1fr; }
-      .exp-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .cert-grid { grid-template-columns: 1fr 1fr; }
-      #cv-cta { flex-direction: column; }
-    }
-    @media (max-width: 600px) {
-      .cert-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/sobre.css">
 </head>
 <body>
 
@@ -329,7 +26,6 @@
 <div id="cursor-ring"></div>
 <div id="page-overlay"></div>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-left">
     <a href="index.html" class="nav-logo"><span>M</span><span>P</span></a>
@@ -354,9 +50,7 @@
   <a href="contato.html">Contato</a>
 </div>
 
-<!-- HERO -->
 <section id="sobre-hero">
-  <div class="sobre-hero-bg"></div>
   <div class="sobre-hero-content">
     <span class="sobre-eyebrow reveal">↳ Sobre mim</span>
     <h1 class="sobre-name reveal" data-delay="80">
@@ -364,26 +58,24 @@
     </h1>
     <div class="sobre-hero-foot reveal" data-delay="160">
       <p class="sobre-hero-bio">
-        Dev + IA sediado em Brasília, DF.<br><br>
-        Construo <strong>presença digital para pequenas empresas</strong> com sites premium e automações inteligentes via Claude Code. Experiência anterior como <strong>QA Analyst no BRB Card por 18 meses</strong> — trouxe a mentalidade de qualidade e testes para cada projeto web entregue.
+        Dev + IA em Brasília, DF.<br><br>
+        Passei <strong>18 meses como estagiário de QA no BRB Card</strong> (Nov/2024 – Abr/2026) trabalhando com sistemas financeiros críticos — isso me ensinou a entregar com qualidade antes de entregar rápido. Hoje aplico essa mentalidade nos sites e automações que construo para <strong>pequenas empresas locais</strong>.
       </p>
       <div class="sobre-hero-links">
-        <a href="mailto:mmurilo.pinho@gmail.com" class="btn-primary">Falar comigo ↗</a>
+        <a href="contato.html" class="btn-primary">Falar comigo ↗</a>
         <a href="uploads/murilo-pinho-cv.pdf" download class="btn-secondary">↓ Download CV</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FILOSOFIA -->
 <section id="filosofia">
   <span class="section-eyebrow reveal">↳ Filosofia</span>
   <p class="filosofia-text reveal" data-delay="80">
-    "Tecnologia não é o produto — é o meio. Cada site que entrego começa com entender o negócio de verdade, e termina só quando está <em>funcionando</em> e trazendo resultado. Não vendo código: vendo presença, confiança e clientes na porta."
+    "Passei 18 meses quebrando sistemas financeiros antes de encontrar um bug — isso me ensinou que <em>entregar bem</em> é mais difícil do que construir rápido. Só entrego quando está funcionando de verdade."
   </p>
 </section>
 
-<!-- EXPERIÊNCIA -->
 <section id="experiencia">
   <div class="exp-header reveal">
     <span class="section-eyebrow">↳ Trajetória</span>
@@ -395,7 +87,7 @@
       <div class="exp-card-role">Fundador &<br><em>Desenvolvedor</em></div>
       <div class="exp-card-company">MP Soluções Digitais · Brasília, DF</div>
       <p class="exp-card-desc">
-        Criação de sites premium, automações WhatsApp e agentes IA para pequenas empresas locais em Brasília. Pipeline próprio com skills Claude Code para entregar do brief até o deploy de forma semiautomática.
+        Sites premium e automações IA para pequenas empresas locais. Pipeline próprio com 7 skills Claude Code — do onboarding do cliente até o deploy, com supervisão humana em cada etapa crítica.
       </p>
       <div class="exp-card-stack">
         <span class="tag">Claude Code</span>
@@ -403,28 +95,34 @@
         <span class="tag-plain">Three.js</span>
         <span class="tag-plain">GSAP</span>
         <span class="tag-plain">Vercel</span>
-        <span class="tag-plain">n8n</span>
+        <span class="tag-plain">MCP</span>
+      </div>
+      <div class="exp-card-actions">
+        <a href="case/mp.html" class="btn-secondary">Ver case ↗</a>
       </div>
     </div>
     <div class="exp-card reveal" data-delay="80">
-      <div class="exp-card-period">2024 – 2025 · 18 meses</div>
-      <div class="exp-card-role">QA<br><em>Analyst</em></div>
+      <div class="exp-card-period">Nov/2024 – Abr/2026 · 18 meses</div>
+      <div class="exp-card-role">Estagiário<br><em>Testes de Software</em></div>
       <div class="exp-card-company">BRB Card · Brasília, DF</div>
       <p class="exp-card-desc">
-        Automação E2E com Cypress para fluxos críticos do cartão de crédito BRB. Coleções Postman para APIs bancárias REST. BDD/Gherkin com Cucumber. Integração GitHub Actions CI/CD. ISTQB CTFL e Agile Tester.
+        Testes manuais, funcionais, regressivos e exploratórios em sistemas financeiros críticos. Mais de 80 casos de teste com rastreabilidade completa. Automação E2E com Cypress, APIs com Postman, BDD/Gherkin e framework 4D aplicado à automação assistida por IA.
       </p>
       <div class="exp-card-stack">
         <span class="tag">Cypress</span>
         <span class="tag-plain">Postman</span>
         <span class="tag-plain">BDD/Gherkin</span>
         <span class="tag-plain">GitHub Actions</span>
+        <span class="tag-plain">Scrum</span>
         <span class="tag-plain">ISTQB ×2</span>
+      </div>
+      <div class="exp-card-actions">
+        <a href="case/qa-brb.html" class="btn-secondary">Ver case ↗</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="reveal">
     <span class="section-eyebrow">↳ Competências</span>
@@ -432,7 +130,6 @@
   </div>
   <div class="skills-grid">
     <div class="skill-group reveal">
-      <div class="skill-group-icon">🌐</div>
       <div class="skill-group-title">Web &<br><em>Frontend</em></div>
       <div class="skill-bar-item">
         <div class="skill-bar-top">
@@ -472,7 +169,6 @@
     </div>
 
     <div class="skill-group reveal" data-delay="80">
-      <div class="skill-group-icon">🤖</div>
       <div class="skill-group-title">IA &<br><em>Agentes</em></div>
       <div class="skill-bar-item">
         <div class="skill-bar-top">
@@ -490,17 +186,17 @@
       </div>
       <div class="skill-bar-item">
         <div class="skill-bar-top">
-          <span class="skill-bar-name">Orquestração multi-agente</span>
+          <span class="skill-bar-name">Agent Skills · Subagents</span>
           <span class="skill-bar-level top">expert</span>
         </div>
         <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
       </div>
       <div class="skill-bar-item">
         <div class="skill-bar-top">
-          <span class="skill-bar-name">AgentDB / Hive Mind</span>
+          <span class="skill-bar-name">Framework 4D</span>
           <span class="skill-bar-level">advanced</span>
         </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
       </div>
       <div class="skill-bar-item">
         <div class="skill-bar-top">
@@ -512,7 +208,6 @@
     </div>
 
     <div class="skill-group reveal" data-delay="160">
-      <div class="skill-group-icon">🧪</div>
       <div class="skill-group-title">QA &<br><em>Métodos</em></div>
       <div class="skill-bar-item">
         <div class="skill-bar-top">
@@ -537,10 +232,10 @@
       </div>
       <div class="skill-bar-item">
         <div class="skill-bar-top">
-          <span class="skill-bar-name">GitHub Actions CI/CD</span>
+          <span class="skill-bar-name">Scrum / Kanban</span>
           <span class="skill-bar-level">advanced</span>
         </div>
-        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:80%"></div></div>
       </div>
       <div class="skill-bar-item">
         <div class="skill-bar-top">
@@ -553,7 +248,6 @@
   </div>
 </section>
 
-<!-- CERTIFICAÇÕES -->
 <section id="certificacoes">
   <div class="reveal">
     <span class="section-eyebrow">↳ Credenciais</span>
@@ -563,35 +257,34 @@
     <div class="cert-card reveal">
       <div class="cert-badge">✦</div>
       <div class="cert-org">ISTQB</div>
-      <div class="cert-name">Certified Tester<br>Foundation Level (CTFL)</div>
-      <div class="cert-status">Ativo</div>
+      <div class="cert-name">CTFL — Certified Tester<br>Foundation Level</div>
+      <div class="cert-status">Ativo · 2025</div>
     </div>
     <div class="cert-card reveal" data-delay="60">
       <div class="cert-badge">✦</div>
       <div class="cert-org">ISTQB</div>
-      <div class="cert-name">Agile Tester<br>Extension</div>
-      <div class="cert-status">Ativo</div>
+      <div class="cert-name">CTFL-AT — Agile Tester<br>Extension</div>
+      <div class="cert-status">Ativo · 2025</div>
     </div>
     <div class="cert-card reveal" data-delay="120">
       <div class="cert-badge">✦</div>
-      <div class="cert-org">Anthropic</div>
-      <div class="cert-name">Claude AI &<br>MCP · 10× Certificações</div>
-      <div class="cert-status">Ativo</div>
+      <div class="cert-org">Anthropic · 10× certs</div>
+      <div class="cert-name">AI Fluency · Claude 101 · Claude Code · MCP · Agent Skills · Subagents</div>
+      <div class="cert-status">Ativo · 2025</div>
     </div>
     <div class="cert-card reveal" data-delay="180">
       <div class="cert-badge">◈</div>
-      <div class="cert-org">Graduação</div>
-      <div class="cert-name">Tecnologia da<br>Informação</div>
-      <div class="cert-status pending">Cursando</div>
+      <div class="cert-org">SENAC · cursando</div>
+      <div class="cert-name">ADS — Análise e Desenvolvimento de Sistemas<br>+ IA & Machine Learning</div>
+      <div class="cert-status pending">2026 – 2028</div>
     </div>
   </div>
 </section>
 
-<!-- CV CTA -->
 <section id="cv-cta">
   <div class="cv-cta-text reveal">
     <div class="cv-cta-title">Currículo<br><em>completo</em></div>
-    <p class="cv-cta-sub">Histórico detalhado, referências e portfólio em PDF.</p>
+    <p class="cv-cta-sub">Histórico detalhado, certificações e portfólio em PDF.</p>
   </div>
   <div class="cv-cta-actions reveal" data-delay="80">
     <a href="uploads/murilo-pinho-cv.pdf" download class="btn-primary">↓ Download CV</a>
@@ -599,7 +292,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer id="footer">
   <div class="footer-top">
     <div>
@@ -618,10 +310,9 @@
     <div class="footer-col">
       <h4>Contato</h4>
       <ul>
-        <li><a href="mailto:mmurilo.pinho@gmail.com">E-mail</a></li>
-        <li><a href="https://wa.me/5561998332564" target="_blank" rel="noopener">WhatsApp</a></li>
-        <li><a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://github.com/murilopinho" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://wa.me/5561998332564" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/murilopinho" target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
     </div>
   </div>
@@ -631,21 +322,8 @@
     <span class="footer-built">built with <span>Claude Code</span></span>
   </div>
 </footer>
-<!-- Fotos: Unsplash -->
 
 <script src="assets/shared.js"></script>
-<script>
-  // Animar barras de skills ao entrar na viewport
-  const skillGroups = document.querySelectorAll('.skill-group');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  skillGroups.forEach(g => obs.observe(g));
-</script>
+<script src="assets/sobre.js"></script>
 </body>
 </html>

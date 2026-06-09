@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Murilo Pinho · Dev + IA</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/shared.css">
+  <style>
+    .page-404 {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem var(--pad-x);
+      gap: 0;
+    }
+    .err-code {
+      font-family: var(--font-display);
+      font-size: clamp(120px, 25vw, 220px);
+      line-height: 1;
+      color: var(--fg);
+      opacity: 0.07;
+      user-select: none;
+      margin-bottom: -0.1em;
+    }
+    .err-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .err-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 5vw, 52px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+    .err-title em { font-style: italic; color: var(--mid); }
+    .err-sub {
+      font-size: 15px;
+      color: var(--mid);
+      max-width: 380px;
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .err-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="page-overlay"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <a href="/" class="nav-logo"><span>M</span><span>P</span></a>
+    <span class="nav-name">Murilo Pinho</span>
+  </div>
+  <div class="nav-center">
+    <a href="/">Index</a>
+    <a href="/trabalhos.html">Trabalhos</a>
+    <a href="/sobre.html">Sobre</a>
+    <a href="/contato.html">Contato</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-clock"></span>
+    <div class="nav-avail"><span class="dot-green"></span>Disponível</div>
+    <button class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="nav-mobile-menu">
+  <a href="/">Index</a>
+  <a href="/trabalhos.html">Trabalhos</a>
+  <a href="/sobre.html">Sobre</a>
+  <a href="/contato.html">Contato</a>
+</div>
+
+<main class="page-404">
+  <div class="err-code" aria-hidden="true">404</div>
+  <span class="err-label">↳ Página não encontrada</span>
+  <h1 class="err-title">Essa página<br><em>não existe</em></h1>
+  <p class="err-sub">O link pode ter expirado ou a URL foi digitada errada. Mas o resto do site está todo aqui.</p>
+  <div class="err-actions">
+    <a href="/" class="btn-primary">← Voltar ao início</a>
+    <a href="/contato.html" class="btn-outline">Falar comigo</a>
+  </div>
+</main>
+
+<script src="/assets/shared.js"></script>
+</body>
+</html>

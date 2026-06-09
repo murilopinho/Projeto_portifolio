@@ -1,0 +1,280 @@
+/* ── SOBRE HERO ── */
+#sobre-hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 110px var(--pad-x) 64px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.sobre-hero-content { position: relative; z-index: 1; }
+.sobre-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+.sobre-name {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 10vw, 160px);
+  line-height: 0.88;
+  margin-bottom: 40px;
+}
+.sobre-name em { font-style: italic; color: var(--mid); }
+.sobre-hero-foot {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 900px;
+}
+.sobre-hero-bio {
+  font-size: 16px;
+  color: var(--mid);
+  line-height: 1.75;
+}
+.sobre-hero-bio strong { color: var(--fg); font-weight: 500; }
+.sobre-hero-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* ── FILOSOFIA ── */
+#filosofia {
+  padding: 120px var(--pad-x);
+  border-bottom: 1px solid var(--line);
+}
+.filosofia-text {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 52px);
+  font-style: italic;
+  line-height: 1.2;
+  max-width: 900px;
+  color: var(--fg);
+}
+.filosofia-text em { color: var(--accent); font-style: normal; }
+
+/* ── EXPERIÊNCIA ── */
+#experiencia {
+  padding: 120px var(--pad-x);
+  border-bottom: 1px solid var(--line);
+}
+.exp-header { margin-bottom: 64px; }
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 64px);
+  font-style: italic;
+}
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.exp-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.exp-card:hover { border-color: var(--line-2); }
+.exp-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--accent), transparent);
+}
+.exp-card-period {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.exp-card-role {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-style: italic;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.exp-card-company {
+  font-size: 14px;
+  color: var(--mid);
+  margin-bottom: 24px;
+}
+.exp-card-desc {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex: 1;
+}
+.exp-card-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.exp-card-actions { display: flex; gap: 12px; }
+
+/* ── SKILLS ── */
+#skills {
+  padding: 120px var(--pad-x);
+  border-bottom: 1px solid var(--line);
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+.skill-group {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 36px;
+  transition: border-color 0.3s;
+}
+.skill-group:hover { border-color: var(--line-2); }
+.skill-group-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+.skill-bar-item { margin-bottom: 18px; }
+.skill-bar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.skill-bar-name { font-size: 13px; color: var(--fg); }
+.skill-bar-level {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+.skill-bar-level.top { color: var(--accent); }
+.skill-bar-track {
+  height: 2px;
+  background: var(--line);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--accent), var(--accent-2));
+  border-radius: 100px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease-out);
+}
+.skill-group.visible .skill-bar-fill { transform: scaleX(1); }
+
+/* ── CERTIFICAÇÕES ── */
+#certificacoes {
+  padding: 120px var(--pad-x);
+  border-bottom: 1px solid var(--line);
+}
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 64px;
+}
+.cert-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.cert-card:hover { border-color: var(--line-2); transform: translateY(-4px); }
+.cert-badge { font-size: 32px; }
+.cert-org {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.cert-name { font-size: 14px; font-weight: 500; color: var(--fg); line-height: 1.4; }
+.cert-status {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cert-status::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+.cert-status.pending { color: var(--mid); }
+.cert-status.pending::before { background: var(--mid); }
+
+/* ── CV CTA ── */
+#cv-cta {
+  padding: 100px var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
+}
+.cv-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 52px);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+.cv-cta-sub { font-size: 14px; color: var(--mid); }
+.cv-cta-actions { display: flex; gap: 12px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .sobre-hero-foot { grid-template-columns: 1fr; }
+  .exp-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr 1fr; }
+  #cv-cta { flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .cert-grid { grid-template-columns: 1fr; }
+}
