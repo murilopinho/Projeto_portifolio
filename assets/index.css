@@ -365,7 +365,18 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-bottom: 64px;
+}
+.cap-segments {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-top: -40px;
 }
 .cap-title {
   font-family: var(--font-display);
