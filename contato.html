@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — Murilo Pinho · Dev + IA · Brasília</title>
+  <meta name="description" content="Entre em contato com Murilo Pinho. Primeira consultoria grátis. Resposta em até 24h. Sites, automações e agentes IA para empresas locais em Brasília.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/shared.css">
+  <style>
+    /* ── LAYOUT ── */
+    #contato-hero {
+      min-height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 110px var(--pad-x) 64px;
+      border-bottom: 1px solid var(--line);
+    }
+    .contato-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .contato-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 9vw, 140px);
+      line-height: 0.88;
+      margin-bottom: 24px;
+    }
+    .contato-title em { font-style: italic; color: var(--mid); }
+    .contato-sub {
+      font-size: 15px;
+      color: var(--mid);
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    /* ── MAIN GRID ── */
+    #contato-main {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ── SIDEBAR INFO ── */
+    .contato-info {
+      padding: 64px var(--pad-x);
+      border-right: 1px solid var(--line);
+    }
+    .contato-info-section {
+      margin-bottom: 48px;
+    }
+    .contato-info-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .contato-channel {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+      transition: opacity 0.2s;
+    }
+    .contato-channel:last-child { border-bottom: none; }
+    .contato-channel:hover { opacity: 0.7; }
+    .contato-channel-icon {
+      width: 40px; height: 40px;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .contato-channel-info {}
+    .contato-channel-name {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 2px;
+    }
+    .contato-channel-value {
+      font-size: 14px;
+      color: var(--fg);
+    }
+    .contato-promise {
+      background: var(--bg-2);
+      border: 1px solid var(--line-2);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .contato-promise-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.5;
+    }
+    .contato-promise-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .contato-promise-check {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* ── FORM ── */
+    .contato-form-wrap {
+      padding: 64px var(--pad-x);
+    }
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+    #contato-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .form-input,
+    .form-textarea,
+    .form-select {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      resize: none;
+    }
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus { border-color: var(--accent); }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--dim); }
+    .form-textarea { height: 140px; }
+    .form-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6B7A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      cursor: pointer;
+    }
+    .form-select option { background: var(--bg-2); }
+    .form-submit {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .form-note {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+    }
+
+    /* Form success state */
+    #form-success {
+      display: none;
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    #form-success.show { display: block; }
+    .success-icon { font-size: 40px; margin-bottom: 16px; }
+    .success-title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-style: italic;
+      color: #22c55e;
+      margin-bottom: 8px;
+    }
+    .success-sub { font-size: 14px; color: var(--mid); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #contato-main { grid-template-columns: 1fr; }
+      .contato-info { border-right: none; border-bottom: 1px solid var(--line); }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="page-overlay"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo"><span>M</span><span>P</span></a>
+    <span class="nav-name">Murilo Pinho</span>
+  </div>
+  <div class="nav-center">
+    <a href="index.html">Index</a>
+    <a href="trabalhos.html">Trabalhos</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html" style="color:var(--fg)">Contato</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-clock"></span>
+    <div class="nav-avail"><span class="dot-green"></span>Disponível para projetos</div>
+    <button class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="nav-mobile-menu">
+  <a href="index.html">Index</a>
+  <a href="trabalhos.html">Trabalhos</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="contato.html">Contato</a>
+</div>
+
+<!-- HERO -->
+<section id="contato-hero">
+  <span class="contato-eyebrow reveal">↳ Vamos conversar</span>
+  <h1 class="contato-title reveal" data-delay="80">
+    Entre<br><em>em contato</em>
+  </h1>
+  <p class="contato-sub reveal" data-delay="160">
+    Primeira consultoria grátis. Resposta em até 24h. Aceito projetos de sites, automações e agentes IA.
+  </p>
+</section>
+
+<!-- MAIN -->
+<div id="contato-main">
+  <!-- INFO SIDEBAR -->
+  <aside class="contato-info">
+    <div class="contato-info-section reveal">
+      <span class="contato-info-label">Canais diretos</span>
+      <a href="mailto:mmurilo.pinho@gmail.com" class="contato-channel">
+        <div class="contato-channel-icon">✉</div>
+        <div class="contato-channel-info">
+          <div class="contato-channel-name">E-mail</div>
+          <div class="contato-channel-value">mmurilo.pinho@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://wa.me/5561998332564" target="_blank" rel="noopener" class="contato-channel">
+        <div class="contato-channel-icon">📱</div>
+        <div class="contato-channel-info">
+          <div class="contato-channel-name">WhatsApp</div>
+          <div class="contato-channel-value">Brasília, DF</div>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener" class="contato-channel">
+        <div class="contato-channel-icon">in</div>
+        <div class="contato-channel-info">
+          <div class="contato-channel-name">LinkedIn</div>
+          <div class="contato-channel-value">linkedin.com/in/murilopinho</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="contato-info-section reveal" data-delay="80">
+      <span class="contato-info-label">Meus compromissos</span>
+      <div class="contato-promise">
+        <div class="contato-promise-item">
+          <span class="contato-promise-check">✓</span>
+          Primeira consultoria 100% gratuita — sem compromisso
+        </div>
+        <div class="contato-promise-item">
+          <span class="contato-promise-check">✓</span>
+          Resposta em até 24h em dias úteis
+        </div>
+        <div class="contato-promise-item">
+          <span class="contato-promise-check">✓</span>
+          Proposta personalizada para o seu negócio
+        </div>
+        <div class="contato-promise-item">
+          <span class="contato-promise-check">✓</span>
+          Entrega com checklist de qualidade
+        </div>
+      </div>
+    </div>
+
+    <div class="contato-info-section reveal" data-delay="160">
+      <span class="contato-info-label">Localização</span>
+      <p style="font-size:14px;color:var(--mid);line-height:1.7;">
+        Brasília, DF — Brasil<br>
+        Atendo presencialmente e remotamente
+      </p>
+    </div>
+  </aside>
+
+  <!-- FORM -->
+  <div class="contato-form-wrap reveal">
+    <div class="form-title">Manda uma<br><em>mensagem</em></div>
+    <form id="contato-form" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="nome">Nome</label>
+          <input class="form-input" id="nome" name="nome" type="text" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="empresa">Empresa / Negócio</label>
+          <input class="form-input" id="empresa" name="empresa" type="text" placeholder="Nome do negócio">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="email">E-mail</label>
+          <input class="form-input" id="email" name="email" type="email" placeholder="seu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="whatsapp">WhatsApp</label>
+          <input class="form-input" id="whatsapp" name="whatsapp" type="tel" placeholder="(61) 9 0000-0000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="servico">Que tipo de projeto você precisa?</label>
+        <select class="form-select" id="servico" name="servico">
+          <option value="">Selecionar...</option>
+          <option value="site">Site profissional</option>
+          <option value="automacao">Automação WhatsApp</option>
+          <option value="agente">Agente IA</option>
+          <option value="completo">Pacote completo (Site + Automação)</option>
+          <option value="outro">Outro / Não sei ainda</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="mensagem">Conte um pouco sobre o seu negócio</label>
+        <textarea class="form-textarea" id="mensagem" name="mensagem" placeholder="Ex: Tenho uma loja de roupas no Riacho Fundo, quero aparecer no Google e ter um site profissional..."></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-primary">Enviar mensagem →</button>
+        <span class="form-note">ou fale direto pelo WhatsApp ↗</span>
+      </div>
+    </form>
+    <div id="form-success">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Mensagem enviada!</div>
+      <p class="success-sub">Retorno em até 24h. Obrigado pelo contato!</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
+      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">Dev + IA · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegar</h4>
+      <ul>
+        <li><a href="index.html">Index</a></li>
+        <li><a href="trabalhos.html">Trabalhos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="mailto:mmurilo.pinho@gmail.com">E-mail</a></li>
+        <li><a href="https://wa.me/5561998332564" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/murilopinho" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Murilo Pinho · MP Soluções Digitais</span>
+    <span class="nav-clock"></span>
+    <span class="footer-built">built with <span>Claude Code</span></span>
+  </div>
+</footer>
+
+<script src="assets/shared.js"></script>
+<script>
+  document.getElementById('contato-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome     = document.getElementById('nome').value.trim();
+    const empresa  = document.getElementById('empresa').value.trim();
+    const email    = document.getElementById('email').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const servico  = document.getElementById('servico').value;
+    const mensagem = document.getElementById('mensagem').value.trim();
+
+    if (!nome || !email) return;
+
+    const texto = encodeURIComponent(
+      `Olá Murilo! Me chamo ${nome}${empresa ? ` — ${empresa}` : ''}.\n\n` +
+      `E-mail: ${email}\n` +
+      (whatsapp ? `WA: ${whatsapp}\n` : '') +
+      (servico  ? `Serviço: ${servico}\n` : '') +
+      (mensagem ? `\n${mensagem}` : '')
+    );
+
+    // Abre WhatsApp com mensagem pré-preenchida
+    window.open(`https://wa.me/5561998332564?text=${texto}`, '_blank');
+
+    // Mostra sucesso
+    this.style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+  });
+</script>
+</body>
+</html>

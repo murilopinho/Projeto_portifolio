@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabalhos — Murilo Pinho · Dev + IA · Brasília</title>
+  <meta name="description" content="Todos os projetos de Murilo Pinho — sites premium, automações e agentes IA para empresas locais em Brasília.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/shared.css">
+  <style>
+    #trabalhos-hero {
+      padding: 140px var(--pad-x) 64px;
+      border-bottom: 1px solid var(--line);
+    }
+    .trabalhos-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .trabalhos-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 9vw, 140px);
+      line-height: 0.88;
+      margin-bottom: 24px;
+    }
+    .trabalhos-title em { font-style: italic; color: var(--mid); }
+    .trabalhos-sub {
+      font-size: 15px;
+      color: var(--mid);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* FILTROS */
+    #filtros {
+      padding: 32px var(--pad-x);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filtro-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-right: 8px;
+    }
+    .filtro-btn {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      border: 1px solid var(--line);
+      padding: 8px 16px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: none;
+    }
+    .filtro-btn:hover,
+    .filtro-btn.ativo {
+      color: var(--accent);
+      border-color: var(--line-2);
+      background: rgba(59,111,255,0.06);
+    }
+
+    /* GRID DE PROJETOS */
+    #projetos-grid {
+      padding: 64px var(--pad-x);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .projeto-card {
+      background: var(--bg);
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transition: background 0.3s;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+    }
+    .projeto-card:hover { background: var(--bg-2); }
+    .projeto-card.inativo { cursor: default; }
+
+    .projeto-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--mid);
+    }
+    .projeto-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      position: relative;
+    }
+    .projeto-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s var(--ease);
+    }
+    .projeto-card:hover .projeto-img img { transform: scale(1.04); }
+    .projeto-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dim);
+      flex-direction: column;
+      gap: 12px;
+    }
+    .projeto-img-placeholder span { font-size: 36px; opacity: 0.4; }
+
+    .projeto-status {
+      position: absolute;
+      top: 12px; right: 12px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(10,10,15,0.85);
+      border: 1px solid var(--line);
+      padding: 5px 10px;
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .sd-live { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; }
+    .sd-wip  { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); animation: pulse-blue 2s infinite; }
+    @keyframes pulse-blue {
+      0%,100%{box-shadow:0 0 0 0 rgba(59,111,255,.4)}
+      50%{box-shadow:0 0 0 4px rgba(59,111,255,0)}
+    }
+
+    .projeto-info {}
+    .projeto-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .projeto-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-style: italic;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .projeto-desc {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+    .projeto-arrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.2s;
+    }
+    .projeto-card:hover .projeto-arrow { gap: 16px; }
+    .projeto-arrow-disabled {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--dim);
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      #projetos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="page-overlay"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo"><span>M</span><span>P</span></a>
+    <span class="nav-name">Murilo Pinho</span>
+  </div>
+  <div class="nav-center">
+    <a href="index.html">Index</a>
+    <a href="trabalhos.html" style="color:var(--fg)">Trabalhos</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html">Contato</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-clock"></span>
+    <div class="nav-avail"><span class="dot-green"></span>Disponível</div>
+    <button class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="nav-mobile-menu">
+  <a href="index.html">Index</a>
+  <a href="trabalhos.html">Trabalhos</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="contato.html">Contato</a>
+</div>
+
+<!-- HERO -->
+<section id="trabalhos-hero">
+  <span class="trabalhos-eyebrow reveal">↳ Todos os projetos</span>
+  <h1 class="trabalhos-title reveal" data-delay="80">
+    Trabalhos &<br><em>cases</em>
+  </h1>
+  <p class="trabalhos-sub reveal" data-delay="160">
+    Sites, automações e QA — projetos entregues com pipeline IA proprietário.
+  </p>
+</section>
+
+<!-- FILTROS -->
+<div id="filtros" class="reveal">
+  <span class="filtro-label">Filtrar:</span>
+  <button class="filtro-btn ativo" data-filtro="todos">Todos</button>
+  <button class="filtro-btn" data-filtro="web">Web Premium</button>
+  <button class="filtro-btn" data-filtro="ia">IA & Agentes</button>
+  <button class="filtro-btn" data-filtro="qa">QA & Automação</button>
+</div>
+
+<!-- GRID -->
+<div id="projetos-grid">
+
+  <!-- Mirantes -->
+  <a href="case/mirantes.html" class="projeto-card reveal" data-categoria="web">
+    <div class="projeto-num">01 / 04</div>
+    <div class="projeto-img">
+      <img src="screenshots/mirantes-hero.jpg" alt="Mirantes da Ilha" loading="lazy"
+           onerror="this.style.display='none'">
+      <div class="projeto-img-placeholder"><span>🗺️</span>Mirantes da Ilha</div>
+      <div class="projeto-status"><span class="sd-live"></span>LIVE</div>
+    </div>
+    <div class="projeto-info">
+      <div class="projeto-tags-row">
+        <span class="tag">Three.js</span>
+        <span class="tag">GSAP</span>
+        <span class="tag-plain">Web Premium</span>
+        <span class="tag-plain">3D</span>
+      </div>
+      <div class="projeto-title">Mirantes da Ilha</div>
+      <p class="projeto-desc">Loteamento de luxo em Palmital de Minas/MG. Mapa 3D interativo dos lotes, hero imersivo, formulário para WhatsApp.</p>
+    </div>
+    <div class="projeto-arrow">Ver case completo →</div>
+  </a>
+
+  <!-- MP Soluções -->
+  <a href="case/mp.html" class="projeto-card reveal" data-delay="80" data-categoria="ia">
+    <div class="projeto-num">02 / 04</div>
+    <div class="projeto-img">
+      <div class="projeto-img-placeholder"><span>🤖</span>MP Soluções Digitais</div>
+      <div class="projeto-status"><span class="sd-wip"></span>EM CONSTRUÇÃO</div>
+    </div>
+    <div class="projeto-info">
+      <div class="projeto-tags-row">
+        <span class="tag">Claude Code</span>
+        <span class="tag">Agentes IA</span>
+        <span class="tag-plain">Pipeline</span>
+        <span class="tag-plain">Skills</span>
+      </div>
+      <div class="projeto-title">MP Soluções Digitais</div>
+      <p class="projeto-desc">Pipeline IA proprietário com 7 skills + 80 agentes para construção autônoma de sites — do brief ao deploy.</p>
+    </div>
+    <div class="projeto-arrow">Ver case completo →</div>
+  </a>
+
+  <!-- QA BRB -->
+  <a href="case/qa-brb.html" class="projeto-card reveal" data-categoria="qa">
+    <div class="projeto-num">03 / 04</div>
+    <div class="projeto-img">
+      <div class="projeto-img-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--accent);flex-direction:row;gap:0;padding:24px;overflow:hidden;align-items:flex-start;justify-content:flex-start;">
+        <div style="line-height:2;text-align:left;opacity:0.8">
+          <span style="color:var(--mid)">it(</span>'deve autenticar'<span style="color:var(--mid)">, () =&gt; {</span><br>
+          &nbsp;cy.visit('/login')<br>
+          &nbsp;cy.get('[data-cy=cpf]').type(...)<br>
+          &nbsp;cy.get('[data-cy=submit]').click()<br>
+          &nbsp;cy.url().should('include', '/dash')<br>
+          <span style="color:var(--mid)">})</span>
+        </div>
+      </div>
+      <div class="projeto-status"><span style="color:var(--mid)">■</span>&nbsp;BRB CARD</div>
+    </div>
+    <div class="projeto-info">
+      <div class="projeto-tags-row">
+        <span class="tag">Cypress</span>
+        <span class="tag">Postman</span>
+        <span class="tag-plain">QA · 18 meses</span>
+        <span class="tag-plain">BDD</span>
+      </div>
+      <div class="projeto-title">QA BRB Card</div>
+      <p class="projeto-desc">18 meses como QA Analyst. 80+ fluxos E2E, 120+ endpoints validados. Cypress, Postman, GitHub Actions CI/CD.</p>
+    </div>
+    <div class="projeto-arrow">Ver case completo →</div>
+  </a>
+
+  <!-- Claude Code Pipeline -->
+  <a href="case/mp.html#pipeline" class="projeto-card reveal" data-delay="80" data-categoria="ia">
+    <div class="projeto-num">04 / 04</div>
+    <div class="projeto-img">
+      <div class="projeto-img-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--mid);flex-direction:row;gap:0;padding:24px;overflow:hidden;align-items:flex-start;justify-content:flex-start;">
+        <div style="line-height:2;text-align:left">
+          <span style="color:var(--accent)">$</span> /intake-cliente CNPJ:12...<br>
+          <span style="color:#22c55e">✓</span> ReceitaWS · Nominatim...<br>
+          <span style="color:var(--accent)">→</span> Brief gerado <span style="color:var(--fg)">[CONFIRMAR]</span><br>
+          <span style="color:var(--accent)">$</span> /orcamento-cliente premium<br>
+          <span style="color:#22c55e">✓</span> Proposta criada em HTML<br>
+          <span style="color:var(--accent)">$</span> Pipeline completo...
+        </div>
+      </div>
+      <div class="projeto-status"><span class="sd-wip"></span>ATIVO</div>
+    </div>
+    <div class="projeto-info">
+      <div class="projeto-tags-row">
+        <span class="tag">Claude Code</span>
+        <span class="tag">AgentDB</span>
+        <span class="tag-plain">80+ Agentes</span>
+        <span class="tag-plain">Hive Mind</span>
+      </div>
+      <div class="projeto-title">Claude Code Pipeline</div>
+      <p class="projeto-desc">Pipeline proprietário de geração de sites via IA. Do onboarding ao deploy — orquestrado com supervisão humana.</p>
+    </div>
+    <div class="projeto-arrow">Ver case completo →</div>
+  </a>
+
+</div>
+
+<!-- CTA -->
+<section style="padding:100px var(--pad-x);text-align:center;border-bottom:1px solid var(--line)">
+  <p class="reveal" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--mid);margin-bottom:24px;">↳ Tem um projeto em mente?</p>
+  <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(32px,5vw,72px);font-style:italic;margin-bottom:32px;" data-delay="60">
+    Vamos construir<br><em>juntos</em>
+  </h2>
+  <div class="reveal" data-delay="120" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+    <a href="contato.html" class="btn-primary">Falar sobre meu projeto →</a>
+    <a href="sobre.html" class="btn-secondary">Conhecer minha stack ↗</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
+      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">Dev + IA · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegar</h4>
+      <ul>
+        <li><a href="index.html">Index</a></li>
+        <li><a href="trabalhos.html">Trabalhos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="mailto:mmurilo.pinho@gmail.com">E-mail</a></li>
+        <li><a href="https://wa.me/5561998332564" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Murilo Pinho · MP Soluções Digitais</span>
+    <span class="nav-clock"></span>
+    <span class="footer-built">built with <span>Claude Code</span></span>
+  </div>
+</footer>
+
+<script src="assets/shared.js"></script>
+<script>
+  // Filtro de categorias
+  document.querySelectorAll('.filtro-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
+      this.classList.add('ativo');
+      const filtro = this.dataset.filtro;
+      document.querySelectorAll('.projeto-card').forEach(card => {
+        if (filtro === 'todos' || card.dataset.categoria === filtro) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

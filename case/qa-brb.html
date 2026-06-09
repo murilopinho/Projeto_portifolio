@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case: QA BRB Card — Murilo Pinho</title>
+  <meta name="description" content="18 meses como QA Analyst no BRB Card. 80+ fluxos E2E automatizados com Cypress, 120+ endpoints Postman, BDD/Gherkin, GitHub Actions CI/CD.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/shared.css">
+  <link rel="stylesheet" href="../assets/case.css">
+  <style>
+    /* Bloco de código estilizado */
+    .code-block {
+      background: #0D0D14;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 40px 0;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    .code-block-header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .code-dots { display: flex; gap: 6px; }
+    .code-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .code-block-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-left: auto;
+    }
+    .code-block-body { padding: 24px; overflow-x: auto; }
+    .code-block-body .kw  { color: #6690FF; }
+    .code-block-body .str { color: #22c55e; }
+    .code-block-body .fn  { color: #F0EDE6; }
+    .code-block-body .cmt { color: var(--mid); font-style: italic; }
+    .code-block-body .acc { color: #3B6FFF; }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="page-overlay"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <a href="../index.html" class="nav-logo"><span>M</span><span>P</span></a>
+    <span class="nav-name">Murilo Pinho</span>
+  </div>
+  <div class="nav-center">
+    <a href="../index.html">Index</a>
+    <a href="../trabalhos.html">Trabalhos</a>
+    <a href="../sobre.html">Sobre</a>
+    <a href="../contato.html">Contato</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-clock"></span>
+    <div class="nav-avail"><span class="dot-green"></span>Disponível</div>
+    <button class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="nav-mobile-menu">
+  <a href="../index.html">Index</a>
+  <a href="../trabalhos.html">Trabalhos</a>
+  <a href="../sobre.html">Sobre</a>
+  <a href="../contato.html">Contato</a>
+</div>
+
+<!-- HERO -->
+<section class="case-hero">
+  <div class="case-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80&fit=crop&auto=format');opacity:0.08"></div><!-- FOTO BANCO — substituir por screenshot real -->
+  <div class="case-hero-content">
+    <a href="../trabalhos.html" class="case-back reveal">← Todos os projetos</a>
+    <span class="case-eyebrow reveal" data-delay="60">↳ case · 03 / 04 · qa · automação · 18 meses</span>
+    <h1 class="case-hero-title reveal" data-delay="120">
+      QA<br><em>BRB Card</em>
+    </h1>
+    <div class="case-hero-meta reveal" data-delay="180">
+      <div class="case-meta-item">
+        <span class="case-meta-label">Empresa</span>
+        <span class="case-meta-value">BRB Card · Brasília, DF</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Período</span>
+        <span class="case-meta-value">2024 – 2025 · 18 meses</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Função</span>
+        <span class="case-meta-value">QA Analyst</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Certificações</span>
+        <span class="case-meta-value">ISTQB CTFL + Agile Tester</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="case-body">
+
+  <!-- VISÃO GERAL -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Contexto</span>
+    <h2 class="case-section-title">O trabalho</h2>
+    <p>
+      Por 18 meses atuei como QA Analyst no BRB Card — o cartão de crédito do Banco de Brasília. O desafio era garantir a qualidade de um produto financeiro crítico, onde falhas impactam diretamente clientes reais e operações bancárias.
+    </p>
+    <p>
+      Responsável pela automação de testes E2E com Cypress, validação de APIs bancárias via Postman, escrita de cenários BDD/Gherkin e integração dos testes no pipeline GitHub Actions CI/CD.
+    </p>
+  </div>
+
+  <!-- MÉTRICAS -->
+  <div class="case-metrics reveal">
+    <div class="case-metric">
+      <span class="case-metric-val">80+</span>
+      <span class="case-metric-label">Fluxos E2E<br>automatizados</span>
+    </div>
+    <div class="case-metric">
+      <span class="case-metric-val">120+</span>
+      <span class="case-metric-label">Endpoints<br>validados</span>
+    </div>
+    <div class="case-metric">
+      <span class="case-metric-val">2×</span>
+      <span class="case-metric-label">ISTQB<br>certificações</span>
+    </div>
+  </div>
+
+  <!-- CYPRESS -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Automação E2E</span>
+    <h2 class="case-section-title">Cypress &<br><em>fluxos críticos</em></h2>
+    <p>
+      Automação de 80+ fluxos críticos do cartão: login, emissão de fatura, pagamento, contestação de transação, limite e bloqueio de cartão. Cada suite de testes rodava em CI a cada push, com relatório de falhas por e-mail.
+    </p>
+    <p>
+      Uso de Page Object Model (POM) para organização dos seletores e commands customizados para reutilização de fluxos comuns como autenticação e navegação.
+    </p>
+  </div>
+
+  <div class="code-block reveal">
+    <div class="code-block-header">
+      <div class="code-dots">
+        <div class="code-dot" style="background:#FF5F57"></div>
+        <div class="code-dot" style="background:#FEBC2E"></div>
+        <div class="code-dot" style="background:#28C840"></div>
+      </div>
+      <span class="code-block-label">cypress/e2e/pagamento.cy.js</span>
+    </div>
+    <div class="code-block-body">
+      <span class="cmt">// Fluxo de pagamento de fatura — BRB Card</span><br>
+      <span class="kw">describe</span>(<span class="str">'Pagamento de Fatura'</span>, () => {<br>
+      &nbsp;&nbsp;<span class="kw">beforeEach</span>(() => {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cy.<span class="fn">loginBRB</span>() <span class="cmt">// custom command</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cy.<span class="fn">visit</span>(<span class="str">'/fatura'</span>)<br>
+      &nbsp;&nbsp;})<br><br>
+      &nbsp;&nbsp;<span class="kw">it</span>(<span class="str">'deve exibir fatura do mês atual'</span>, () => {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cy.<span class="fn">get</span>(<span class="str">'[data-cy=fatura-valor]'</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="fn">should</span>(<span class="str">'be.visible'</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="fn">invoke</span>(<span class="str">'text'</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="fn">should</span>(<span class="str">'match'</span>, <span class="acc">/R\$\s[\d.,]+/</span>)<br>
+      &nbsp;&nbsp;})<br><br>
+      &nbsp;&nbsp;<span class="kw">it</span>(<span class="str">'deve processar pagamento via débito'</span>, () => {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cy.<span class="fn">get</span>(<span class="str">'[data-cy=btn-pagar]'</span>).<span class="fn">click</span>()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cy.<span class="fn">get</span>(<span class="str">'[data-cy=metodo-debito]'</span>).<span class="fn">click</span>()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cy.<span class="fn">get</span>(<span class="str">'[data-cy=confirmar]'</span>).<span class="fn">click</span>()<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;cy.<span class="fn">get</span>(<span class="str">'[data-cy=toast-sucesso]'</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="fn">should</span>(<span class="str">'contain'</span>, <span class="str">'Pagamento realizado'</span>)<br>
+      &nbsp;&nbsp;})<br>
+      })
+    </div>
+  </div>
+
+  <!-- POSTMAN -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ API Testing</span>
+    <h2 class="case-section-title">Postman &<br><em>APIs bancárias</em></h2>
+    <p>
+      Coleções Postman para validação de 120+ endpoints REST das APIs bancárias: autenticação OAuth 2.0, consulta de saldo e limite, emissão de segunda via, histórico de transações e webhooks de pagamento.
+    </p>
+    <p>
+      Uso de environments por ambiente (dev/homologação/produção), scripts de pré-request para geração de tokens dinâmicos e scripts de teste para validação de schemas de resposta.
+    </p>
+  </div>
+
+  <!-- BDD -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ BDD & Gherkin</span>
+    <h2 class="case-section-title">Especificações<br><em>executáveis</em></h2>
+    <p>
+      Escrita de cenários BDD em Gherkin para documentar e validar regras de negócio com times de produto, desenvolvimento e QA. Cenários serviam como contrato vivo entre as áreas.
+    </p>
+  </div>
+
+  <div class="code-block reveal">
+    <div class="code-block-header">
+      <div class="code-dots">
+        <div class="code-dot" style="background:#FF5F57"></div>
+        <div class="code-dot" style="background:#FEBC2E"></div>
+        <div class="code-dot" style="background:#28C840"></div>
+      </div>
+      <span class="code-block-label">features/limite.feature</span>
+    </div>
+    <div class="code-block-body">
+      <span class="kw">Funcionalidade:</span> Consulta de Limite do Cartão<br><br>
+      &nbsp;&nbsp;<span class="kw">Contexto:</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Dado</span> que o cliente está autenticado no app BRB Card<br><br>
+      &nbsp;&nbsp;<span class="kw">Cenário:</span> Cliente consulta limite disponível<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Quando</span> o cliente acessa a tela de limite<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Então</span> deve ver o limite total e o limite disponível<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">E</span> os valores devem estar formatados em reais<br><br>
+      &nbsp;&nbsp;<span class="kw">Cenário:</span> Sistema bloqueia operação acima do limite<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Dado</span> que o cliente possui limite disponível de R$100<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Quando</span> tenta realizar uma compra de R$150<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Então</span> a transação deve ser negada<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">E</span> deve exibir mensagem <span class="str">"Limite insuficiente"</span>
+    </div>
+  </div>
+
+  <!-- CI/CD -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ CI/CD</span>
+    <h2 class="case-section-title">GitHub Actions &<br><em>pipeline de testes</em></h2>
+    <p>
+      Integração da suite Cypress ao pipeline GitHub Actions. Testes disparados automaticamente em push para branches de feature e obrigatoriamente em PRs para main. Relatórios de falha enviados ao canal do time.
+    </p>
+    <p>
+      Paralelização dos testes em múltiplas máquinas para reduzir tempo de feedback no CI. Uso de Cypress Cloud para gravação de vídeos das execuções com falha.
+    </p>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Stack utilizado</span>
+    <h2 class="case-section-title">Tecnologias</h2>
+    <div class="case-tech-grid">
+      <span class="tag">Cypress 12</span>
+      <span class="tag">Postman / Newman</span>
+      <span class="tag">GitHub Actions</span>
+      <span class="tag-plain">BDD / Gherkin</span>
+      <span class="tag-plain">Cucumber</span>
+      <span class="tag-plain">ISTQB CTFL</span>
+      <span class="tag-plain">ISTQB Agile</span>
+      <span class="tag-plain">REST APIs</span>
+      <span class="tag-plain">OAuth 2.0</span>
+      <span class="tag-plain">Cypress Cloud</span>
+    </div>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Impacto</span>
+    <h2 class="case-section-title">O que<br><em>foi alcançado</em></h2>
+    <p>
+      Cobertura automatizada dos fluxos críticos do produto, reduzindo regressões em produção. Pipeline CI confiável com feedback imediato a cada push. Cenários BDD como documentação viva das regras de negócio, acessível a todos os times.
+    </p>
+    <p>
+      Experiência em sistema financeiro real — com os padrões de qualidade, rastreabilidade e segurança que esse contexto exige. Essa mentalidade de QA está presente em todos os projetos web que entrego hoje.
+    </p>
+  </div>
+
+  <!-- CTA -->
+  <div class="case-section reveal" style="text-align:center;padding:48px 0">
+    <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--mid);margin-bottom:24px;">↳ Quer qualidade no seu projeto?</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="../contato.html" class="btn-primary">Falar sobre meu projeto →</a>
+      <a href="../sobre.html" class="btn-secondary">Ver minha experiência ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- CASE NAV -->
+<div class="case-nav">
+  <a href="mirantes.html" class="case-nav-item reveal">
+    <span class="case-nav-dir">← Case anterior</span>
+    <span class="case-nav-title">Mirantes <em>da Ilha</em></span>
+  </a>
+  <a href="mp.html" class="case-nav-item next reveal" data-delay="60">
+    <span class="case-nav-dir">Próximo case →</span>
+    <span class="case-nav-title">Claude <em>Code Pipeline</em></span>
+  </a>
+</div>
+
+<footer id="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
+      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">Dev + IA · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegar</h4>
+      <ul>
+        <li><a href="../index.html">Index</a></li>
+        <li><a href="../trabalhos.html">Trabalhos</a></li>
+        <li><a href="../sobre.html">Sobre</a></li>
+        <li><a href="../contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="mailto:mmurilo.pinho@gmail.com">E-mail</a></li>
+        <li><a href="https://wa.me/5561998332564" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Murilo Pinho · MP Soluções Digitais</span>
+    <span class="nav-clock"></span>
+    <span class="footer-built">built with <span>Claude Code</span></span>
+  </div>
+</footer>
+
+<script src="../assets/shared.js"></script>
+</body>
+</html>

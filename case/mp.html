@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case: MP Soluções Digitais — Murilo Pinho</title>
+  <meta name="description" content="Pipeline IA proprietário com 7 skills + 80 agentes para construção autônoma de sites. Do brief ao deploy, orquestrado por Claude Code.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/shared.css">
+  <link rel="stylesheet" href="../assets/case.css">
+  <style>
+    .code-block {
+      background: #0D0D14;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 40px 0;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    .code-block-header {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .code-dots { display: flex; gap: 6px; }
+    .code-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .code-block-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-left: auto;
+    }
+    .code-block-body {
+      padding: 24px;
+      overflow-x: auto;
+    }
+    .cb-acc  { color: #3B6FFF; }
+    .cb-ok   { color: #22c55e; }
+    .cb-mid  { color: var(--mid); }
+    .cb-fg   { color: var(--fg); }
+    .cb-warn { color: #FEBC2E; }
+
+    /* Pipeline flow */
+    .pipeline-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 40px 0;
+    }
+    .pipeline-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      position: relative;
+    }
+    .pipeline-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 48px;
+      bottom: -1px;
+      width: 1px;
+      background: var(--line-2);
+    }
+    .pipeline-step-num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--bg-2);
+      border: 1px solid var(--line-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .pipeline-step-body {
+      padding: 12px 0 40px;
+    }
+    .pipeline-step-skill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .pipeline-step-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .pipeline-step-desc {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.7;
+    }
+
+    /* Skills grid */
+    .skills-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .skill-card {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      transition: border-color 0.3s;
+    }
+    .skill-card:hover { border-color: var(--line-2); }
+    .skill-card-name {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .skill-card-desc {
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .skills-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="page-overlay"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <a href="../index.html" class="nav-logo"><span>M</span><span>P</span></a>
+    <span class="nav-name">Murilo Pinho</span>
+  </div>
+  <div class="nav-center">
+    <a href="../index.html">Index</a>
+    <a href="../trabalhos.html">Trabalhos</a>
+    <a href="../sobre.html">Sobre</a>
+    <a href="../contato.html">Contato</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-clock"></span>
+    <div class="nav-avail"><span class="dot-green"></span>Disponível</div>
+    <button class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="nav-mobile-menu">
+  <a href="../index.html">Index</a>
+  <a href="../trabalhos.html">Trabalhos</a>
+  <a href="../sobre.html">Sobre</a>
+  <a href="../contato.html">Contato</a>
+</div>
+
+<!-- HERO -->
+<section class="case-hero" id="pipeline">
+  <div class="case-hero-bg" style="background:linear-gradient(135deg,#0A0A0F 0%,#0D0D1A 50%,#0A0A14 100%)"></div>
+  <div class="case-hero-content">
+    <a href="../trabalhos.html" class="case-back reveal">← Todos os projetos</a>
+    <span class="case-eyebrow reveal" data-delay="60">↳ case · 02 + 04 / 04 · branding · ia · agents</span>
+    <h1 class="case-hero-title reveal" data-delay="120">
+      MP Soluções<br><em>& Pipeline IA</em>
+    </h1>
+    <div class="case-hero-meta reveal" data-delay="180">
+      <div class="case-meta-item">
+        <span class="case-meta-label">Empresa</span>
+        <span class="case-meta-value">MP Soluções Digitais</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Período</span>
+        <span class="case-meta-value">2026 → atual</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Skills</span>
+        <span class="case-meta-value">7 proprietárias</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Status</span>
+        <span class="case-meta-value" style="color:var(--accent)">● Ativo · em evolução</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="case-body">
+
+  <!-- VISÃO GERAL -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ O projeto</span>
+    <h2 class="case-section-title">O que é a<br><em>MP Soluções</em></h2>
+    <p>
+      A MP Soluções Digitais é minha empresa de freelance — mas também é o projeto mais técnico que já construí. Além de um site institucional, desenvolvi um pipeline completo de geração de sites com IA que automatiza do onboarding do cliente até o deploy final.
+    </p>
+    <p>
+      O diferencial: sou o único freelancer em Brasília que usa Claude Code com skills e agentes proprietários para entregar sites premium. O que levaria dias de trabalho manual é feito em horas, com qualidade consistente e checklist automatizado.
+    </p>
+  </div>
+
+  <!-- MÉTRICAS -->
+  <div class="case-metrics reveal">
+    <div class="case-metric">
+      <span class="case-metric-val">7</span>
+      <span class="case-metric-label">Skills Claude Code<br>proprietárias</span>
+    </div>
+    <div class="case-metric">
+      <span class="case-metric-val">80+</span>
+      <span class="case-metric-label">Agentes IA<br>orquestrados</span>
+    </div>
+    <div class="case-metric">
+      <span class="case-metric-val">5+</span>
+      <span class="case-metric-label">Sites entregues<br>com o pipeline</span>
+    </div>
+  </div>
+
+  <!-- PIPELINE FLOW -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ O pipeline</span>
+    <h2 class="case-section-title">Do brief<br><em>ao deploy</em></h2>
+    <p>Cada projeto de site passa pelas mesmas etapas automatizadas, garantindo qualidade e velocidade de entrega.</p>
+  </div>
+
+  <div class="pipeline-flow reveal">
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">01</div>
+      <div class="pipeline-step-body">
+        <div class="pipeline-step-skill">/intake-cliente</div>
+        <div class="pipeline-step-title">Coleta automática<br><em>de dados</em></div>
+        <p class="pipeline-step-desc">CNPJ → ReceitaWS busca nome, email, telefone, endereço e CNAE. CEP → ViaCEP completa o endereço. Google Maps URL → extrai GPS. Site existente → lê cores, fontes, WA e textos. Tudo automático antes de perguntar qualquer coisa ao cliente.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">02</div>
+      <div class="pipeline-step-body">
+        <div class="pipeline-step-skill">[CONFIRMAR]</div>
+        <div class="pipeline-step-title">Validação<br><em>com o cliente</em></div>
+        <p class="pipeline-step-desc">Brief gerado é apresentado ao cliente para confirmar diferenciais, horários e informações que a IA não consegue buscar. Ponto de supervisão humana no processo.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">03</div>
+      <div class="pipeline-step-body">
+        <div class="pipeline-step-skill">/orcamento-cliente</div>
+        <div class="pipeline-step-title">Proposta<br><em>em HTML</em></div>
+        <p class="pipeline-step-desc">Com o brief confirmado, gera proposta comercial em HTML responsivo com tier de preço, escopo, prazo e forma de pagamento. Pronto para enviar por email ou WhatsApp.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">04</div>
+      <div class="pipeline-step-body">
+        <div class="pipeline-step-skill">Pipeline CLAUDE.md</div>
+        <div class="pipeline-step-title">Geração<br><em>do site</em></div>
+        <p class="pipeline-step-desc">Após aprovação, o CLAUDE.md orquestra a geração completa do site: HTML/CSS/JS modulares, banco de fotos Unsplash por segmento, efeitos 3D/GSAP, Schema.org, Open Graph, WhatsApp flutuante e CHECKLIST_MANUAL.md.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">05</div>
+      <div class="pipeline-step-body">
+        <div class="pipeline-step-skill">/relatorio-cliente</div>
+        <div class="pipeline-step-title">Entrega<br><em>documentada</em></div>
+        <p class="pipeline-step-desc">Documento de entrega em HTML com screenshots, URL do site, tecnologias usadas, orientações de uso e próximos passos. Profissional e reutilizável.</p>
+      </div>
+    </div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-num">06</div>
+      <div class="pipeline-step-body">
+        <div class="pipeline-step-skill">/atualizar-cliente</div>
+        <div class="pipeline-step-title">Manutenção<br><em>cirúrgica</em></div>
+        <p class="pipeline-step-desc">Para edições futuras: skill que recebe a pasta do cliente e o que precisa mudar, fazendo edições precisas sem quebrar o restante do site.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Skills instaladas</span>
+    <h2 class="case-section-title">As 7<br><em>skills proprietárias</em></h2>
+    <p>Todas disponíveis globalmente no Claude Code — funcionam em qualquer pasta de cliente.</p>
+    <div class="skills-cards">
+      <div class="skill-card">
+        <div class="skill-card-name">/intake-cliente</div>
+        <div class="skill-card-desc">Busca automática de dados via CNPJ, CEP, Maps, site e redes sociais. Gera brief estruturado pronto para o pipeline.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-name">/orcamento-cliente</div>
+        <div class="skill-card-desc">Proposta comercial em HTML com tier de preço, escopo e prazo. Pronta para envio por email ou WhatsApp.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-name">/atualizar-cliente</div>
+        <div class="skill-card-desc">Edições cirúrgicas em sites entregues. Recebe pasta + o que mudar. Não quebra o restante do código.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-name">/relatorio-cliente</div>
+        <div class="skill-card-desc">Documento de entrega profissional com screenshots, URL, stack usada e orientações para o cliente.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-name">/efeitos-3d</div>
+        <div class="skill-card-desc">Biblioteca de efeitos prontos: CSS 3D, Three.js e GSAP ScrollTrigger. Código completo para colar no projeto.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-name">/banco-de-fotos</div>
+        <div class="skill-card-desc">IDs curados do Unsplash por segmento de negócio. Fotos estáveis, sem API key, licença comercial gratuita.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMINAL -->
+  <div class="code-block reveal">
+    <div class="code-block-header">
+      <div class="code-dots">
+        <div class="code-dot" style="background:#FF5F57"></div>
+        <div class="code-dot" style="background:#FEBC2E"></div>
+        <div class="code-dot" style="background:#28C840"></div>
+      </div>
+      <span class="code-block-label">Terminal — pipeline em ação</span>
+    </div>
+    <div class="code-block-body">
+      <span class="cb-acc">$</span> mkdir 21-nova-loja && cd 21-nova-loja<br>
+      <span class="cb-acc">$</span> cp ~/Downloads/CLAUDE.md .<br>
+      <span class="cb-acc">$</span> /intake-cliente CNPJ:00.000.000/0001-00 Maps:maps.google.com/...<br>
+      <span class="cb-ok">✓</span> ReceitaWS — Nome, email, telefone, CNAE obtidos<br>
+      <span class="cb-ok">✓</span> ViaCEP — Endereço completo, DDD: 61<br>
+      <span class="cb-ok">✓</span> Nominatim — GPS: -15.8231, -48.0541<br>
+      <span class="cb-ok">✓</span> Site existente lido — cores, WA, textos extraídos<br>
+      <span class="cb-warn">⚠</span> Instagram bio bloqueada — username salvo<br>
+      <br>
+      <span class="cb-acc">→</span> Brief gerado. Confirme diferenciais: <span class="cb-fg">[CONFIRMAR]</span><br>
+      <br>
+      <span class="cb-acc">$</span> /orcamento-cliente premium<br>
+      <span class="cb-ok">✓</span> Proposta criada em orcamento.html<br>
+      <span class="cb-mid"># Após aprovação do cliente:</span><br>
+      <br>
+      <span class="cb-acc">$</span> <span class="cb-mid"># Disparar pipeline completo via CLAUDE.md</span><br>
+      <span class="cb-ok">✓</span> index.html · css/ (7 arquivos) · js/ (5 arquivos)<br>
+      <span class="cb-ok">✓</span> Fotos Unsplash segmento "varejo" aplicadas<br>
+      <span class="cb-ok">✓</span> Schema.org + Open Graph preenchidos<br>
+      <span class="cb-ok">✓</span> WhatsApp flutuante configurado<br>
+      <span class="cb-ok">✓</span> CHECKLIST_MANUAL.md gerado<br>
+      <span class="cb-acc">→</span> Pronto para testar em localhost:8080
+    </div>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Stack</span>
+    <h2 class="case-section-title">Tecnologias<br><em>do pipeline</em></h2>
+    <div class="case-tech-grid">
+      <span class="tag">Claude Code</span>
+      <span class="tag">Claude API</span>
+      <span class="tag">AgentDB</span>
+      <span class="tag-plain">Hive Mind</span>
+      <span class="tag-plain">SPARC</span>
+      <span class="tag-plain">MCP</span>
+      <span class="tag-plain">ReceitaWS</span>
+      <span class="tag-plain">ViaCEP</span>
+      <span class="tag-plain">Nominatim OSM</span>
+      <span class="tag-plain">Unsplash API-free</span>
+      <span class="tag-plain">Vercel CLI</span>
+      <span class="tag-plain">GitHub Actions</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="case-section reveal" style="text-align:center;padding:48px 0">
+    <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--mid);margin-bottom:24px;">↳ Quer um site feito com esse pipeline?</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="../contato.html" class="btn-primary">Quero meu site →</a>
+      <a href="../trabalhos.html" class="btn-secondary">Ver outros projetos ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- CASE NAV -->
+<div class="case-nav">
+  <a href="qa-brb.html" class="case-nav-item reveal">
+    <span class="case-nav-dir">← Case anterior</span>
+    <span class="case-nav-title">QA <em>BRB Card</em></span>
+  </a>
+  <a href="mirantes.html" class="case-nav-item next reveal" data-delay="60">
+    <span class="case-nav-dir">Ver primeiro case →</span>
+    <span class="case-nav-title">Mirantes <em>da Ilha</em></span>
+  </a>
+</div>
+
+<footer id="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
+      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">Dev + IA · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegar</h4>
+      <ul>
+        <li><a href="../index.html">Index</a></li>
+        <li><a href="../trabalhos.html">Trabalhos</a></li>
+        <li><a href="../sobre.html">Sobre</a></li>
+        <li><a href="../contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="mailto:mmurilo.pinho@gmail.com">E-mail</a></li>
+        <li><a href="https://wa.me/5561998332564" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Murilo Pinho · MP Soluções Digitais</span>
+    <span class="nav-clock"></span>
+    <span class="footer-built">built with <span>Claude Code</span></span>
+  </div>
+</footer>
+
+<script src="../assets/shared.js"></script>
+</body>
+</html>

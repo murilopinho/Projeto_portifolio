@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case: Mirantes da Ilha — Murilo Pinho</title>
+  <meta name="description" content="Case study: site de loteamento de luxo Mirantes da Ilha. Three.js, mapa 3D interativo, GSAP, Vercel.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/shared.css">
+  <link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="page-overlay"></div>
+
+<nav id="nav">
+  <div class="nav-left">
+    <a href="../index.html" class="nav-logo"><span>M</span><span>P</span></a>
+    <span class="nav-name">Murilo Pinho</span>
+  </div>
+  <div class="nav-center">
+    <a href="../index.html">Index</a>
+    <a href="../trabalhos.html">Trabalhos</a>
+    <a href="../sobre.html">Sobre</a>
+    <a href="../contato.html">Contato</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-clock"></span>
+    <div class="nav-avail"><span class="dot-green"></span>Disponível</div>
+    <button class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div id="nav-mobile-menu">
+  <a href="../index.html">Index</a>
+  <a href="../trabalhos.html">Trabalhos</a>
+  <a href="../sobre.html">Sobre</a>
+  <a href="../contato.html">Contato</a>
+</div>
+
+<!-- HERO -->
+<section class="case-hero">
+  <div class="case-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80&fit=crop&auto=format')"></div><!-- FOTO BANCO — substituir por screenshot real do site -->
+  <div class="case-hero-content">
+    <a href="../index.html#works" class="case-back reveal">← Todos os projetos</a>
+    <span class="case-eyebrow reveal" data-delay="60">↳ case · 01 / 04 · web premium · 3D</span>
+    <h1 class="case-hero-title reveal" data-delay="120">
+      Mirantes<br><em>da Ilha</em>
+    </h1>
+    <div class="case-hero-meta reveal" data-delay="180">
+      <div class="case-meta-item">
+        <span class="case-meta-label">Tipo</span>
+        <span class="case-meta-value">Site de loteamento premium</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Localização</span>
+        <span class="case-meta-value">Palmital de Minas, MG</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Stack</span>
+        <span class="case-meta-value">Three.js · GSAP · HTML/CSS/JS</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Status</span>
+        <span class="case-meta-value" style="color:#22c55e">● Live · mirantesdailha.com.br</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="case-body">
+
+  <!-- VISÃO GERAL -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Visão geral</span>
+    <h2 class="case-section-title">O projeto</h2>
+    <p>
+      Mirantes da Ilha é um loteamento de luxo às margens da represa UHE Queimado, em Palmital de Minas/MG. O cliente precisava de uma presença digital à altura do empreendimento — algo que transmitisse exclusividade, natureza e segurança de investimento.
+    </p>
+    <p>
+      A solução foi um site com hero imersivo em tela cheia, mapa 3D interativo dos lotes construído em Three.js r128, e animações de scroll suaves via GSAP. Tudo servido via Vercel com deploy automático.
+    </p>
+  </div>
+
+  <!-- MÉTRICAS -->
+  <div class="case-metrics reveal">
+    <div class="case-metric">
+      <span class="case-metric-val">3D</span>
+      <span class="case-metric-label">Mapa interativo<br>dos lotes</span>
+    </div>
+    <div class="case-metric">
+      <span class="case-metric-val">100vh</span>
+      <span class="case-metric-label">Hero imersivo<br>com parallax</span>
+    </div>
+    <div class="case-metric">
+      <span class="case-metric-val">A+</span>
+      <span class="case-metric-label">Lighthouse<br>Performance</span>
+    </div>
+  </div>
+
+  <!-- IMAGEM 1 -->
+  <div class="case-img-wrap reveal">
+    <img
+      src="../screenshots/mirantes-hero.jpg"
+      srcset="../screenshots/mirantes-hero.jpg 800w"
+      alt="Mirantes da Ilha — Hero com vista aérea da represa"
+      loading="lazy"
+      width="900" height="506"
+      onerror="this.parentElement.style.background='var(--bg-2)';this.style.display='none'"
+    >
+    <div class="case-img-caption">↳ Hero — Vista aérea da represa UHE Queimado</div>
+  </div>
+
+  <!-- DESAFIO -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Desafio</span>
+    <h2 class="case-section-title">O que precisava<br><em>ser resolvido</em></h2>
+    <p>
+      O maior desafio era comunicar a localização e os limites dos lotes de forma que o comprador em potencial conseguisse visualizar o terreno sem visitar o local — especialmente compradores de outras cidades.
+    </p>
+    <p>
+      Sites tradicionais de loteamento usam imagens estáticas ou PDFs de plantas. A proposta foi criar uma experiência 3D interativa onde o usuário poderia girar, aproximar e explorar a disposição dos lotes diretamente no browser, sem precisar instalar nada.
+    </p>
+  </div>
+
+  <!-- IMAGEM 2 -->
+  <div class="case-img-wrap reveal">
+    <img
+      src="../screenshots/mirantes-lotes.jpg"
+      alt="Mirantes da Ilha — Mapa 3D interativo dos lotes"
+      loading="lazy"
+      width="900" height="506"
+      onerror="this.parentElement.style.background='var(--bg-2)';this.style.display='none'"
+    >
+    <div class="case-img-caption">↳ Mapa 3D — Lotes interativos com Three.js r128</div>
+  </div>
+
+  <!-- SOLUÇÃO TÉCNICA -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Solução técnica</span>
+    <h2 class="case-section-title">Como foi<br><em>construído</em></h2>
+    <p>
+      O mapa 3D usa Three.js r128 com geometrias personalizadas para representar o terreno e os lotes. Cada lote é um mesh clicável que exibe informações detalhadas (área, preço, disponibilidade) ao ser selecionado. A câmera permite órbita livre com OrbitControls.
+    </p>
+    <p>
+      O hero usa parallax nativo via CSS transform com aceleração de GPU, garantindo 60fps mesmo em dispositivos móveis. As animações de entrada das seções foram implementadas com GSAP ScrollTrigger, criando um ritmo de revelação cinematográfico ao descer a página.
+    </p>
+    <p>
+      O formulário de contato captura interesse nos lotes específicos e direciona para WhatsApp com o lote selecionado pré-preenchido na mensagem.
+    </p>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Stack utilizado</span>
+    <h2 class="case-section-title">Tecnologias</h2>
+    <div class="case-tech-grid">
+      <span class="tag">Three.js r128</span>
+      <span class="tag">GSAP 3.x</span>
+      <span class="tag">ScrollTrigger</span>
+      <span class="tag-plain">HTML5 / CSS3</span>
+      <span class="tag-plain">JavaScript ES6+</span>
+      <span class="tag-plain">OrbitControls</span>
+      <span class="tag-plain">Vercel</span>
+      <span class="tag-plain">GitHub Actions</span>
+      <span class="tag-plain">Schema.org</span>
+      <span class="tag-plain">Open Graph</span>
+    </div>
+  </div>
+
+  <!-- IMAGEM 3 -->
+  <div class="case-img-wrap reveal">
+    <img
+      src="../screenshots/mirantes-terrenos.jpg"
+      alt="Mirantes da Ilha — Vista dos terrenos à beira da represa"
+      loading="lazy"
+      width="900" height="506"
+      onerror="this.parentElement.style.background='var(--bg-2)';this.style.display='none'"
+    >
+    <div class="case-img-caption">↳ Seção de lotes — Visão dos terrenos à beira d'água</div>
+  </div>
+
+  <!-- RESULTADO -->
+  <div class="case-section reveal">
+    <span class="case-section-label">↳ Resultado</span>
+    <h2 class="case-section-title">O que<br><em>foi entregue</em></h2>
+    <p>
+      Site totalmente responsivo, com loading suave, mapa 3D interativo funcional em desktop e mobile, formulário integrado ao WhatsApp do corretor e SEO técnico completo (Schema.org, Open Graph, sitemap).
+    </p>
+    <p>
+      A experiência 3D se tornou o principal diferencial do empreendimento nas apresentações para compradores — o cliente relatou que prospectivos compradores passavam mais tempo explorando os lotes online antes de agendar visitas presenciais.
+    </p>
+    <div class="case-tech-grid" style="margin-top:24px">
+      <span class="tag" style="color:#22c55e;border-color:rgba(34,197,94,0.3)">● Live · mirantesdailha.com.br</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="case-section reveal" style="text-align:center;padding:48px 0">
+    <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--mid);margin-bottom:24px;">↳ Quer algo assim?</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="https://mirantesdailha.com.br" target="_blank" rel="noopener" class="btn-primary">Visitar o site ↗</a>
+      <a href="../contato.html" class="btn-secondary">Falar sobre meu projeto ↗</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- CASE NAV -->
+<div class="case-nav">
+  <a href="../index.html#works" class="case-nav-item reveal">
+    <span class="case-nav-dir">← Todos os cases</span>
+    <span class="case-nav-title">Ver todos</span>
+  </a>
+  <a href="qa-brb.html" class="case-nav-item next reveal" data-delay="60">
+    <span class="case-nav-dir">Próximo case →</span>
+    <span class="case-nav-title">QA <em>BRB Card</em></span>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
+      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">Dev + IA · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegar</h4>
+      <ul>
+        <li><a href="../index.html">Index</a></li>
+        <li><a href="../trabalhos.html">Trabalhos</a></li>
+        <li><a href="../sobre.html">Sobre</a></li>
+        <li><a href="../contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="mailto:mmurilo.pinho@gmail.com">E-mail</a></li>
+        <li><a href="https://wa.me/5561998332564" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Murilo Pinho · MP Soluções Digitais</span>
+    <span class="nav-clock"></span>
+    <span class="footer-built">built with <span>Claude Code</span></span>
+  </div>
+</footer>
+<!-- Fotos: Unsplash -->
+
+<script src="../assets/shared.js"></script>
+</body>
+</html>
