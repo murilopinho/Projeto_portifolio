@@ -83,6 +83,16 @@
   justify-content: flex-end;
   flex-wrap: wrap;
 }
+.hero-cta-hint {
+  grid-column: 3;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: right;
+  margin-top: 6px;
+}
 
 /* ── TICKER ── */
 #ticker {
@@ -297,6 +307,53 @@
 @keyframes pulse-blue {
   0%, 100% { box-shadow: 0 0 0 0 rgba(59,111,255,0.4); }
   50%       { box-shadow: 0 0 0 4px rgba(59,111,255,0); }
+}
+
+/* ── DEPOIMENTO ── */
+#depoimento {
+  padding: 80px var(--pad-x);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg-2);
+}
+.depo-inner {
+  max-width: 800px;
+  position: relative;
+  padding-left: 40px;
+}
+.depo-quote {
+  position: absolute;
+  left: 0;
+  top: -16px;
+  font-family: var(--font-display);
+  font-size: 80px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.4;
+}
+.depo-text {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--fg);
+  margin-bottom: 24px;
+}
+.depo-author {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.depo-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg);
+}
+.depo-role {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
 }
 
 /* ── CAPABILITIES ── */
@@ -545,6 +602,16 @@
   margin-bottom: 48px;
 }
 .cta-title span { display: block; }
+.cta-location {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
 .cta-sub {
   font-size: 15px;
   color: var(--mid);
@@ -567,6 +634,7 @@
 @media (max-width: 900px) {
   .hero-foot { grid-template-columns: 1fr; }
   .hero-foot-ctas { justify-content: flex-start; }
+  .hero-cta-hint { grid-column: 1; text-align: left; }
   .work-item { grid-template-columns: 1fr; }
   .work-right { aspect-ratio: 16/9; }
   .cap-grid { grid-template-columns: 1fr; }
