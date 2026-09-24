@@ -180,21 +180,6 @@
   color: var(--mid);
 }
 .skill-bar-level.top { color: var(--accent); }
-.skill-bar-track {
-  height: 2px;
-  background: var(--line);
-  border-radius: 100px;
-  overflow: hidden;
-}
-.skill-bar-fill {
-  height: 100%;
-  background: linear-gradient(to right, var(--accent), var(--accent-2));
-  border-radius: 100px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.8s var(--ease-out);
-}
-.skill-group.visible .skill-bar-fill { transform: scaleX(1); }
 
 /* ── CERTIFICAÇÕES ── */
 #certificacoes {

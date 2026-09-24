@@ -304,53 +304,6 @@
   background: var(--accent);
 }
 
-/* ── DEPOIMENTO ── */
-#depoimento {
-  padding: 80px var(--pad-x);
-  border-bottom: 1px solid var(--line);
-  background: var(--bg-2);
-}
-.depo-inner {
-  max-width: 800px;
-  position: relative;
-  padding-left: 40px;
-}
-.depo-quote {
-  position: absolute;
-  left: 0;
-  top: -16px;
-  font-family: var(--font-display);
-  font-size: 80px;
-  line-height: 1;
-  color: var(--accent);
-  opacity: 0.4;
-}
-.depo-text {
-  font-family: var(--font-display);
-  font-size: clamp(18px, 2.5vw, 28px);
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--fg);
-  margin-bottom: 24px;
-}
-.depo-author {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.depo-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--fg);
-}
-.depo-role {
-  font-family: var(--font-mono);
-  font-size: var(--fs-9);
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-
 /* ── CAPABILITIES ── */
 #capabilities {
   padding: 120px var(--pad-x);
