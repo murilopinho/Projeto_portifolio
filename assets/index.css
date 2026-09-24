@@ -664,3 +664,6 @@
   .stat-cell { border-right: none; border-bottom: 1px solid var(--line); }
   .stat-cell:last-child { border-bottom: none; }
 }
+
+/* imagem cobre o placeholder; se falhar (onerror some com ela), o placeholder aparece */
+.work-right .work-mockup { position: absolute; inset: 0; }
