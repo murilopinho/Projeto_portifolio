@@ -32,7 +32,7 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mid);
@@ -42,7 +42,7 @@
 .case-back:hover { color: var(--accent); }
 .case-eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
@@ -68,7 +68,7 @@
 }
 .case-meta-label {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--mid);
@@ -89,7 +89,7 @@
 }
 .case-section-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
@@ -137,7 +137,7 @@
 }
 .case-metric-label {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mid);
@@ -159,7 +159,7 @@
   padding: 16px 20px;
   background: var(--bg-2);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.15em;
   color: var(--mid);
   text-transform: uppercase;
@@ -192,7 +192,7 @@
 .case-nav-item:hover { background: var(--bg-2); }
 .case-nav-dir {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--mid);
@@ -209,4 +209,136 @@
   .case-hero-meta { gap: 24px; }
   .case-metrics { grid-template-columns: 1fr; }
   .case-nav { grid-template-columns: 1fr; }
+}
+
+/* ── BLOCO DE CÓDIGO, PIPELINE E SKILLS (vinham inline nos cases) ── */
+/* Bloco de código estilizado */
+.code-block {
+  background: #0D0D14;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 40px 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.code-block-header {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.code-dots { display: flex; gap: 6px; }
+.code-dot { width: 10px; height: 10px; border-radius: 50%; }
+.code-block-label {
+  font-size: var(--fs-10);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-left: auto;
+}
+.code-block-body { padding: 24px; overflow-x: auto; }
+.code-block-body .kw  { color: #6690FF; }
+.code-block-body .str { color: #22c55e; }
+.code-block-body .fn  { color: #F0EDE6; }
+.code-block-body .cmt { color: var(--mid); font-style: italic; }
+.code-block-body .acc { color: #3B6FFF; }
+.cb-acc  { color: #3B6FFF; }
+.cb-ok   { color: #22c55e; }
+.cb-mid  { color: var(--mid); }
+.cb-fg   { color: var(--fg); }
+.cb-warn { color: #FEBC2E; }
+
+/* Pipeline flow */
+.pipeline-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 40px 0;
+}
+.pipeline-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  position: relative;
+}
+.pipeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 48px;
+  bottom: -1px;
+  width: 1px;
+  background: var(--line-2);
+}
+.pipeline-step-num {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.pipeline-step-body {
+  padding: 12px 0 40px;
+}
+.pipeline-step-skill {
+  font-family: var(--font-mono);
+  font-size: var(--fs-11);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.pipeline-step-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.pipeline-step-desc {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+/* Skills grid */
+.skills-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 32px 0;
+}
+.skill-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  transition: border-color 0.3s;
+}
+.skill-card:hover { border-color: var(--line-2); }
+.skill-card-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.skill-card-desc {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .skills-cards { grid-template-columns: 1fr; }
 }

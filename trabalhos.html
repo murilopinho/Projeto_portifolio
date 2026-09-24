@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trabalhos · Murilo Pinho</title>
+  <link rel="canonical" href="https://murilopinho.com.br/trabalhos">
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
   <meta name="description" content="QA com 18 meses de BRB Card e dev de sites, bots de WhatsApp e apps desktop. Brasília, DF.">
 
@@ -11,198 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/shared.css">
-  <style>
-    #trabalhos-hero {
-      padding: 140px var(--pad-x) 64px;
-      border-bottom: 1px solid var(--line);
-    }
-    .trabalhos-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-      display: block;
-    }
-    .trabalhos-title {
-      font-family: var(--font-display);
-      font-size: clamp(48px, 9vw, 140px);
-      line-height: 0.88;
-      margin-bottom: 24px;
-    }
-    .trabalhos-title em { font-style: italic; color: var(--mid); }
-    .trabalhos-sub {
-      font-size: 15px;
-      color: var(--mid);
-      max-width: 520px;
-      line-height: 1.7;
-    }
-
-    /* FILTROS */
-    #filtros {
-      padding: 32px var(--pad-x);
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .filtro-label {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-right: 8px;
-    }
-    .filtro-btn {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--mid);
-      border: 1px solid var(--line);
-      padding: 8px 16px;
-      border-radius: 100px;
-      cursor: pointer;
-      transition: all 0.2s;
-      background: none;
-    }
-    .filtro-btn:hover,
-    .filtro-btn.ativo {
-      color: var(--accent);
-      border-color: var(--line-2);
-      background: rgba(59,111,255,0.06);
-    }
-
-    /* GRID DE PROJETOS */
-    #projetos-grid {
-      padding: 64px var(--pad-x);
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-      background: var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .projeto-card {
-      background: var(--bg);
-      padding: 48px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      transition: background 0.3s;
-      text-decoration: none;
-      color: inherit;
-      position: relative;
-    }
-    .projeto-card:hover { background: var(--bg-2); }
-    .projeto-card.inativo { cursor: default; }
-
-    .projeto-num {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      color: var(--mid);
-    }
-    .projeto-img {
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--bg-2);
-      border: 1px solid var(--line);
-      position: relative;
-    }
-    .projeto-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s var(--ease);
-    }
-    .projeto-card:hover .projeto-img img { transform: scale(1.04); }
-    #projetos-grid > * { min-width: 0; }
-    .projeto-img-placeholder div { white-space: normal; overflow-wrap: anywhere; }
-    .projeto-img-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--dim);
-      flex-direction: column;
-      gap: 12px;
-    }
-    .projeto-img-placeholder span { font-size: 36px; opacity: 0.4; }
-    .projeto-img-placeholder div span { font-size: inherit; opacity: 1; }
-
-    .projeto-status {
-      position: absolute;
-      top: 12px; right: 12px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(10,10,15,0.85);
-      border: 1px solid var(--line);
-      padding: 5px 10px;
-      border-radius: 100px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .sd-live { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; }
-    .sd-wip  { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
-
-    .projeto-info {}
-    .projeto-tags-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .projeto-title {
-      font-family: var(--font-display);
-      font-size: clamp(28px, 3.5vw, 48px);
-      font-style: italic;
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-    .projeto-desc {
-      font-size: 14px;
-      color: var(--mid);
-      line-height: 1.7;
-    }
-    .projeto-arrow {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-top: auto;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: gap 0.2s;
-    }
-    .projeto-card:hover .projeto-arrow { gap: 16px; }
-    .projeto-arrow-disabled {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      color: var(--dim);
-      margin-top: auto;
-    }
-
-    @media (max-width: 768px) {
-      #projetos-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/trabalhos.css">
 </head>
 <body>
 
@@ -212,26 +22,26 @@
 
 <nav id="nav">
   <div class="nav-left">
-    <a href="index.html" class="nav-logo"><span>M</span><span>P</span></a>
+    <a href="/" class="nav-logo"><span>M</span><span>P</span></a>
     <span class="nav-name">Murilo Pinho</span>
   </div>
   <div class="nav-center">
-    <a href="index.html">Index</a>
-    <a href="trabalhos.html" style="color:var(--fg)">Trabalhos</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="contato.html">Contato</a>
+    <a href="/">Index</a>
+    <a href="/trabalhos" aria-current="page">Trabalhos</a>
+    <a href="/sobre">Sobre</a>
+    <a href="/contato">Contato</a>
   </div>
   <div class="nav-right">
     <span class="nav-clock"></span>
     <div class="nav-avail"><span class="dot-green"></span>Disponível</div>
-    <button class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div id="nav-mobile-menu">
-  <a href="index.html">Index</a>
-  <a href="trabalhos.html">Trabalhos</a>
-  <a href="sobre.html">Sobre</a>
-  <a href="contato.html">Contato</a>
+  <a href="/">Index</a>
+  <a href="/trabalhos">Trabalhos</a>
+  <a href="/sobre">Sobre</a>
+  <a href="/contato">Contato</a>
 </div>
 
 <!-- HERO -->
@@ -257,16 +67,16 @@
 
 <!-- GRID -->
 <div id="projetos-grid">
-  <a href="index.html#works" class="projeto-card reveal" data-categoria="ia">
+  <a href="/#works" class="projeto-card reveal" data-categoria="ia">
     <div class="projeto-num">01 / 07</div>
     <div class="projeto-img">
-      <img src="screenshots/atendimento.webp" alt="Ilustração do sistema de atendimento no WhatsApp" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
-      <div class="projeto-img-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--mid);flex-direction:row;gap:0;padding:44px 24px 24px;overflow:hidden;align-items:flex-start;justify-content:flex-start;">
-        <div style="line-height:2;text-align:left">
-          <span style="color:var(--mid)">// o bot NUNCA informa preço</span><br>
-          assert(!<span style="color:var(--accent)">/R\$\s*\d/</span>.test(src))<br>
-          <span style="color:#22c55e">✓</span> OK: nenhum preço nos bots<br>
-          <span style="color:var(--accent)">$</span> git tag v0.4.12 → CI Win + Linux
+      <img src="screenshots/atendimento.webp" alt="Ilustração do sistema de atendimento no WhatsApp" loading="lazy" width="1280" height="698">
+      <div class="projeto-img-placeholder ph-code">
+        <div class="code-lines">
+          <span class="u-mid">// o bot NUNCA informa preço</span><br>
+          assert(!<span class="u-accent">/R\$\s*\d/</span>.test(src))<br>
+          <span class="u-green">✓</span> OK: nenhum preço nos bots<br>
+          <span class="u-accent">$</span> git tag v0.4.12 → CI Win + Linux
         </div>
       </div>
       <div class="projeto-status"><span class="sd-live"></span>v0.4.12</div>
@@ -283,11 +93,11 @@
     </div>
     <div class="projeto-arrow">Resumo na página inicial →</div>
   </a>
-  <a href="case/mirantes.html" class="projeto-card reveal" data-delay="80" data-categoria="web">
+  <a href="/case/mirantes" class="projeto-card reveal" data-delay="80" data-categoria="web">
     <div class="projeto-num">02 / 07</div>
     <div class="projeto-img">
       <img src="screenshots/mirantes-hero.jpg" alt="Mirantes do Lago" loading="lazy"
-           onerror="this.style.display='none'">
+          >
       <div class="projeto-img-placeholder">Mirantes do Lago</div>
       <div class="projeto-status"><span class="sd-live"></span>NO AR · BETA</div>
     </div>
@@ -306,8 +116,8 @@
   <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3786937566" target="_blank" rel="noopener noreferrer" class="projeto-card reveal" data-categoria="pessoal">
     <div class="projeto-num">03 / 07</div>
     <div class="projeto-img">
-      <img src="screenshots/isaac-mods.png" alt="Arte dos mods de Isaac" loading="lazy" style="object-fit:contain;background:#fff"
-           onerror="this.style.display='none'">
+      <img class="img-contain img-white" src="screenshots/isaac-mods.png" alt="Arte dos mods de Isaac" loading="lazy"
+          >
       <div class="projeto-img-placeholder">Mods de Isaac</div>
       <div class="projeto-status"><span class="sd-live"></span>STEAM WORKSHOP</div>
     </div>
@@ -322,16 +132,16 @@
     </div>
     <div class="projeto-arrow">Abrir na Steam ↗</div>
   </a>
-  <a href="index.html#works" class="projeto-card reveal" data-delay="80" data-categoria="pessoal">
+  <a href="/#works" class="projeto-card reveal" data-delay="80" data-categoria="pessoal">
     <div class="projeto-num">04 / 07</div>
     <div class="projeto-img">
-      <img src="screenshots/fly-reflex.webp" alt="Ilustração de uma mosca jogando no computador" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
-      <div class="projeto-img-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--mid);flex-direction:row;gap:0;padding:44px 24px 24px;overflow:hidden;align-items:flex-start;justify-content:flex-start;">
-        <div style="line-height:2;text-align:left">
-          <span style="color:var(--accent)">$</span> ./start.sh --demo<br>
-          <span style="color:#22c55e">✓</span> 668 neurônios · ~19k sinapses<br>
-          <span style="color:#22c55e">✓</span> simulação LIF a 1 kHz<br>
-          <span style="color:var(--accent)">→</span> KEYBOARD: YOURS
+      <img src="screenshots/fly-reflex.webp" alt="Ilustração de uma mosca jogando no computador" loading="lazy" width="1280" height="698">
+      <div class="projeto-img-placeholder ph-code">
+        <div class="code-lines">
+          <span class="u-accent">$</span> ./start.sh --demo<br>
+          <span class="u-green">✓</span> 668 neurônios · ~19k sinapses<br>
+          <span class="u-green">✓</span> simulação LIF a 1 kHz<br>
+          <span class="u-accent">→</span> KEYBOARD: YOURS
         </div>
       </div>
       <div class="projeto-status"><span class="sd-wip"></span>EM CALIBRAÇÃO</div>
@@ -347,21 +157,21 @@
     </div>
     <div class="projeto-arrow">Resumo na página inicial →</div>
   </a>
-  <a href="case/qa-brb.html" class="projeto-card reveal" data-categoria="qa">
+  <a href="/case/qa-brb" class="projeto-card reveal" data-categoria="qa">
     <div class="projeto-num">05 / 07</div>
     <div class="projeto-img">
-      <img src="screenshots/qa-brb.webp" alt="Ilustração do resumo dos 18 meses de QA no BRB Card" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
-      <div class="projeto-img-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--mid);flex-direction:row;gap:0;padding:44px 24px 24px;overflow:hidden;align-items:flex-start;justify-content:flex-start;">
-        <div style="line-height:2;text-align:left">
-          <span style="color:var(--mid)">// exemplo de teste E2E</span><br>
-          <span style="color:var(--mid)">it(</span>'deve autenticar'<span style="color:var(--mid)">, () =&gt; {</span><br>
+      <img src="screenshots/qa-brb.webp" alt="Ilustração do resumo dos 18 meses de QA no BRB Card" loading="lazy" width="1280" height="698">
+      <div class="projeto-img-placeholder ph-code">
+        <div class="code-lines">
+          <span class="u-mid">// exemplo de teste E2E</span><br>
+          <span class="u-mid">it(</span>'deve autenticar'<span class="u-mid">, () =&gt; {</span><br>
           &nbsp;cy.visit('/login')<br>
           &nbsp;cy.get('[data-cy=submit]').click()<br>
           &nbsp;cy.url().should('include', '/dash')<br>
-          <span style="color:var(--mid)">})</span>
+          <span class="u-mid">})</span>
         </div>
       </div>
-      <div class="projeto-status"><span style="color:var(--mid)">■</span>&nbsp;BRB CARD</div>
+      <div class="projeto-status"><span class="u-mid">■</span>&nbsp;BRB CARD</div>
     </div>
     <div class="projeto-info">
       <div class="projeto-tags-row">
@@ -375,16 +185,16 @@
     </div>
     <div class="projeto-arrow">Ver case completo →</div>
   </a>
-  <a href="index.html#works" class="projeto-card reveal" data-delay="80" data-categoria="qa">
+  <a href="/#works" class="projeto-card reveal" data-delay="80" data-categoria="qa">
     <div class="projeto-num">06 / 07</div>
     <div class="projeto-img">
-      <img src="screenshots/bot-vagas.webp" alt="Ilustração do bot de vagas buscando oportunidades" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
-      <div class="projeto-img-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--mid);flex-direction:row;gap:0;padding:44px 24px 24px;overflow:hidden;align-items:flex-start;justify-content:flex-start;">
-        <div style="line-height:2;text-align:left">
-          <span style="color:var(--mid)">23:23 · cron</span><br>
-          <span style="color:#22c55e">✓</span> Greenhouse · Lever · LinkedIn<br>
-          <span style="color:#22c55e">✓</span> filtro: remoto ou DF<br>
-          <span style="color:var(--accent)">→</span> vagas_2026-09-23.md
+      <img src="screenshots/bot-vagas.webp" alt="Ilustração do bot de vagas buscando oportunidades" loading="lazy" width="1280" height="698">
+      <div class="projeto-img-placeholder ph-code">
+        <div class="code-lines">
+          <span class="u-mid">23:23 · cron</span><br>
+          <span class="u-green">✓</span> Greenhouse · Lever · LinkedIn<br>
+          <span class="u-green">✓</span> filtro: remoto ou DF<br>
+          <span class="u-accent">→</span> vagas_2026-09-23.md
         </div>
       </div>
       <div class="projeto-status"><span class="sd-live"></span>RODA TODO DIA</div>
@@ -400,7 +210,7 @@
     </div>
     <div class="projeto-arrow">Resumo na página inicial →</div>
   </a>
-  <a href="case/mp.html" class="projeto-card reveal" data-categoria="web">
+  <a href="/case/mp" class="projeto-card reveal" data-categoria="web">
     <div class="projeto-num">07 / 07</div>
     <div class="projeto-img">
       <div class="projeto-img-placeholder">MP Soluções Digitais</div>
@@ -421,14 +231,14 @@
 </div>
 
 <!-- CTA -->
-<section style="padding:100px var(--pad-x);text-align:center;border-bottom:1px solid var(--line)">
-  <p class="reveal" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--mid);margin-bottom:24px;">↳ Tem um projeto em mente?</p>
-  <h2 class="reveal" style="font-family:var(--font-display);font-size:clamp(32px,5vw,72px);font-style:italic;margin-bottom:32px;" data-delay="60">
+<section class="cta-band">
+  <p class="reveal cta-band-eyebrow">↳ Tem um projeto em mente?</p>
+  <h2 class="reveal cta-band-title" data-delay="60">
     Bora<br><em>conversar</em>
   </h2>
-  <div class="reveal" data-delay="120" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-    <a href="contato.html" class="btn-primary">Falar comigo →</a>
-    <a href="sobre.html" class="btn-secondary">Sobre mim ↗</a>
+  <div class="reveal cta-band-actions" data-delay="120">
+    <a href="/contato" class="btn-primary">Falar comigo →</a>
+    <a href="/sobre" class="btn-secondary">Sobre mim ↗</a>
   </div>
 </section>
 
@@ -437,20 +247,21 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
-      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">QA e dev · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
+      <p class="footer-tagline">QA e dev · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
     </div>
     <div class="footer-col">
       <h4>Navegar</h4>
       <ul>
-        <li><a href="index.html">Index</a></li>
-        <li><a href="trabalhos.html">Trabalhos</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="contato.html">Contato</a></li>
+        <li><a href="/">Index</a></li>
+        <li><a href="/trabalhos">Trabalhos</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="/contato">Contato</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Contato</h4>
       <ul>
+        <li><a href="tel:+5561998332564">(61) 9 9833-2564</a></li>
         <li><a href="mailto:mmurilo.pinho@gmail.com">E-mail</a></li>
         <li><a href="https://wa.me/5561998332564" target="_blank" rel="noopener">WhatsApp</a></li>
         <li><a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -458,29 +269,13 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Murilo Pinho · MP Soluções Digitais</span>
+    <span>© 2026 Murilo Pinho · MP Soluções Digitais · <a href="/privacidade">Privacidade</a></span>
     <span class="nav-clock"></span>
     <span class="footer-built">built with <span>Claude Code</span></span>
   </div>
 </footer>
 
 <script src="assets/shared.js"></script>
-<script>
-  // Filtro de categorias
-  document.querySelectorAll('.filtro-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('ativo'));
-      this.classList.add('ativo');
-      const filtro = this.dataset.filtro;
-      document.querySelectorAll('.projeto-card').forEach(card => {
-        if (filtro === 'todos' || card.dataset.categoria === filtro) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-</script>
+<script src="assets/trabalhos.js"></script>
 </body>
 </html>

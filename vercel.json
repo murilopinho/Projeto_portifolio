@@ -1,4 +1,6 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/(.*)",
@@ -33,17 +35,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true }
-  ],
-  "rewrites": [
-    { "source": "/sobre",    "destination": "/sobre.html" },
-    { "source": "/contato",  "destination": "/contato.html" },
-    { "source": "/trabalhos","destination": "/trabalhos.html" }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/404.html", "status": 404 }
   ]
 }

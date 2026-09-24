@@ -47,6 +47,13 @@
   });
 })();
 
+/* --- IMAGEM QUE NÃO CARREGA: some e deixa o placeholder aparecer --- */
+document.querySelectorAll('img').forEach(img => {
+  const fail = () => { img.style.display = 'none'; img.parentElement.classList.add('img-failed'); };
+  if (img.complete && !img.naturalWidth) fail();
+  else img.addEventListener('error', fail);
+});
+
 /* --- RELÓGIO BRT --- */
 function updateClock() {
   const els = document.querySelectorAll('.nav-clock');
@@ -68,6 +75,8 @@ setInterval(updateClock, 1000);
 
   btn.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
     document.body.style.overflow = open ? 'hidden' : '';
     const spans = btn.querySelectorAll('span');
     if (open) {
@@ -82,6 +91,8 @@ setInterval(updateClock, 1000);
   menu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Abrir menu');
       document.body.style.overflow = '';
       const spans = btn.querySelectorAll('span');
       spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });

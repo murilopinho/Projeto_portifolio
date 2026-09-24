@@ -12,7 +12,7 @@
 .sobre-hero-content { position: relative; z-index: 1; }
 .sobre-eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
@@ -68,7 +68,7 @@
 .exp-header { margin-bottom: 64px; }
 .section-eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
@@ -106,7 +106,7 @@
 }
 .exp-card-period {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -174,7 +174,7 @@
 .skill-bar-name { font-size: 13px; color: var(--fg); }
 .skill-bar-level {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--mid);
@@ -221,7 +221,7 @@
 .cert-badge { font-size: 32px; }
 .cert-org {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -229,7 +229,7 @@
 .cert-name { font-size: 14px; font-weight: 500; color: var(--fg); line-height: 1.4; }
 .cert-status {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #22c55e;
