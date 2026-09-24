@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contato — Murilo Pinho · Dev + IA · Brasília</title>
-  <meta name="description" content="Entre em contato com Murilo Pinho. Primeira consultoria grátis. Resposta em até 24h. Sites, automações e agentes IA para empresas locais em Brasília.">
-  <meta property="og:title" content="Contato — Murilo Pinho · Dev + IA">
-  <meta property="og:description" content="Primeira consultoria grátis. Resposta em até 24h. Sites, automações e agentes IA para empresas locais em Brasília.">
+  <title>Contato · Murilo Pinho</title>
+  <meta name="description" content="QA com 18 meses de BRB Card e dev de sites, bots de WhatsApp e apps desktop. Brasília, DF.">
+  <meta property="og:title" content="Contato · Murilo Pinho">
+  <meta property="og:description" content="QA com 18 meses de BRB Card e dev de sites, bots de WhatsApp e apps desktop. Brasília, DF.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://murilopinho.com.br/contato.html">
   <meta property="og:image" content="https://murilopinho.com.br/assets/images/og-cover.jpg">
@@ -274,7 +274,7 @@
   </div>
   <div class="nav-right">
     <span class="nav-clock"></span>
-    <div class="nav-avail"><span class="dot-green"></span>Disponível para projetos</div>
+    <div class="nav-avail"><span class="dot-green"></span>Aberto a vagas e projetos</div>
     <button class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -292,7 +292,7 @@
     Entre<br><em>em contato</em>
   </h1>
   <p class="contato-sub reveal" data-delay="160">
-    Primeira consultoria grátis. Resposta em até 24h. Aceito projetos de sites, automações e agentes IA.
+    A primeira conversa é de graça e respondo em até 24h. Pode ser vaga de QA ou dev, ou projeto de site, bot ou automação.
   </p>
 </section>
 
@@ -327,11 +327,11 @@
     </div>
 
     <div class="contato-info-section reveal" data-delay="80">
-      <span class="contato-info-label">Meus compromissos</span>
+      <span class="contato-info-label">Como eu trabalho</span>
       <div class="contato-promise">
         <div class="contato-promise-item">
           <span class="contato-promise-check">✓</span>
-          Primeira consultoria 100% gratuita — sem compromisso
+          Primeira conversa de graça
         </div>
         <div class="contato-promise-item">
           <span class="contato-promise-check">✓</span>
@@ -339,11 +339,11 @@
         </div>
         <div class="contato-promise-item">
           <span class="contato-promise-check">✓</span>
-          Proposta personalizada para o seu negócio
+          Proposta com preço e prazo por escrito
         </div>
         <div class="contato-promise-item">
           <span class="contato-promise-check">✓</span>
-          Entrega com checklist de qualidade
+          Testo tudo antes de entregar
         </div>
       </div>
     </div>
@@ -351,7 +351,7 @@
     <div class="contato-info-section reveal" data-delay="160">
       <span class="contato-info-label">Localização</span>
       <p style="font-size:14px;color:var(--mid);line-height:1.7;">
-        Brasília, DF — Brasil<br>
+        Brasília, DF, Brasil<br>
         Atendo presencialmente e remotamente
       </p>
     </div>
@@ -384,13 +384,13 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="form-label" for="servico">Que tipo de projeto você precisa?</label>
+        <label class="form-label" for="servico">Sobre o que você quer falar?</label>
         <select class="form-select" id="servico" name="servico">
           <option value="">Selecionar...</option>
           <option value="site">Site profissional</option>
           <option value="automacao">Automação WhatsApp</option>
-          <option value="agente">Agente IA</option>
-          <option value="completo">Pacote completo (Site + Automação)</option>
+          <option value="app">App desktop / sistema</option>
+          <option value="vaga">Vaga de QA ou dev</option>
           <option value="outro">Outro / Não sei ainda</option>
         </select>
       </div>
@@ -408,8 +408,8 @@
     </form>
     <div id="form-success">
       <div class="success-icon">✓</div>
-      <div class="success-title">Mensagem enviada!</div>
-      <p class="success-sub">Retorno em até 24h. Obrigado pelo contato!</p>
+      <div class="success-title">Abri o WhatsApp pra você</div>
+      <p class="success-sub">Sua mensagem já está escrita lá, é só mandar. Respondo em até 24h.</p>
     </div>
   </div>
 </div>
@@ -419,7 +419,7 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
-      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">Dev + IA · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
+      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">QA e dev · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
     </div>
     <div class="footer-col">
       <h4>Navegar</h4>
@@ -522,14 +522,14 @@
     if (!valid) return;
 
     /* Sanitização: remover tags HTML antes de montar a mensagem */
-    const strip = str => str.replace(/[<>"'&]/g, c => ({'<':'','>'':'','"':'',  "'": '', '&': ''  }[c] || '')).slice(0, 500);
+    const strip = str => str.replace(/[<>"'&]/g, '').slice(0, 500);
 
     const texto = encodeURIComponent(
       'Olá Murilo! Me chamo ' + strip(nome) +
       (empresa ? ' — ' + strip(empresa) : '') + '.\n\n' +
       'E-mail: ' + email + '\n' +
       (whatsapp ? 'WA: ' + whatsapp + '\n' : '') +
-      (servico  ? 'Serviço: ' + servico + '\n' : '') +
+      (servico  ? 'Assunto: ' + servico + '\n' : '') +
       (mensagem ? '\n' + strip(mensagem) : '')
     );
 

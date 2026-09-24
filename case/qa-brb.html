@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case: QA BRB Card — Murilo Pinho</title>
-  <meta name="description" content="18 meses como QA Analyst no BRB Card. 80+ fluxos E2E automatizados com Cypress, 120+ endpoints Postman, BDD/Gherkin, GitHub Actions CI/CD.">
+  <title>Case: QA BRB Card · Murilo Pinho</title>
+  <meta name="description" content="18 meses como estagiário de QA no BRB Card: 80+ casos de teste, Cypress, Postman e BDD/Gherkin.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,11 +93,11 @@
       </div>
       <div class="case-meta-item">
         <span class="case-meta-label">Período</span>
-        <span class="case-meta-value">2024 – 2025 · 18 meses</span>
+        <span class="case-meta-value">nov/2024 – abr/2026 · 18 meses</span>
       </div>
       <div class="case-meta-item">
         <span class="case-meta-label">Função</span>
-        <span class="case-meta-value">QA Analyst</span>
+        <span class="case-meta-value">Estagiário de QA</span>
       </div>
       <div class="case-meta-item">
         <span class="case-meta-label">Certificações</span>
@@ -115,10 +115,10 @@
     <span class="case-section-label">↳ Contexto</span>
     <h2 class="case-section-title">O trabalho</h2>
     <p>
-      Por 18 meses atuei como QA Analyst no BRB Card — o cartão de crédito do Banco de Brasília. O desafio era garantir a qualidade de um produto financeiro crítico, onde falhas impactam diretamente clientes reais e operações bancárias.
+      Fui estagiário de QA no BRB Card, o cartão do Banco de Brasília, de novembro de 2024 a abril de 2026. Em produto financeiro, um bug mexe com o dinheiro de cliente de verdade.
     </p>
     <p>
-      Responsável pela automação de testes E2E com Cypress, validação de APIs bancárias via Postman, escrita de cenários BDD/Gherkin e integração dos testes no pipeline GitHub Actions CI/CD.
+      Fiz teste manual, funcional, de regressão e exploratório, modelei cenário, cacei bug e ajudei a automatizar o que dava. Nesse período tirei as duas certificações ISTQB.
     </p>
   </div>
 
@@ -126,11 +126,11 @@
   <div class="case-metrics reveal">
     <div class="case-metric">
       <span class="case-metric-val">80+</span>
-      <span class="case-metric-label">Fluxos E2E<br>automatizados</span>
+      <span class="case-metric-label">Casos de<br>teste</span>
     </div>
     <div class="case-metric">
-      <span class="case-metric-val">120+</span>
-      <span class="case-metric-label">Endpoints<br>validados</span>
+      <span class="case-metric-val">18</span>
+      <span class="case-metric-label">Meses em<br>sistema financeiro</span>
     </div>
     <div class="case-metric">
       <span class="case-metric-val">2×</span>
@@ -143,10 +143,10 @@
     <span class="case-section-label">↳ Automação E2E</span>
     <h2 class="case-section-title">Cypress &<br><em>fluxos críticos</em></h2>
     <p>
-      Automação de 80+ fluxos críticos do cartão: login, emissão de fatura, pagamento, contestação de transação, limite e bloqueio de cartão. Cada suite de testes rodava em CI a cada push, com relatório de falhas por e-mail.
+      Automatizei fluxos E2E com Cypress, organizando os seletores em Page Objects e os passos repetidos (como o login) em comandos customizados.
     </p>
     <p>
-      Uso de Page Object Model (POM) para organização dos seletores e commands customizados para reutilização de fluxos comuns como autenticação e navegação.
+      O código abaixo é um exemplo do estilo de teste que eu escrevia, não é código do BRB, que é confidencial.
     </p>
   </div>
 
@@ -157,10 +157,10 @@
         <div class="code-dot" style="background:#FEBC2E"></div>
         <div class="code-dot" style="background:#28C840"></div>
       </div>
-      <span class="code-block-label">cypress/e2e/pagamento.cy.js</span>
+      <span class="code-block-label">exemplo · pagamento.cy.js</span>
     </div>
     <div class="code-block-body">
-      <span class="cmt">// Fluxo de pagamento de fatura — BRB Card</span><br>
+      <span class="cmt">// Exemplo: pagamento de fatura</span><br>
       <span class="kw">describe</span>(<span class="str">'Pagamento de Fatura'</span>, () => {<br>
       &nbsp;&nbsp;<span class="kw">beforeEach</span>(() => {<br>
       &nbsp;&nbsp;&nbsp;&nbsp;cy.<span class="fn">loginBRB</span>() <span class="cmt">// custom command</span><br>
@@ -186,12 +186,12 @@
   <!-- POSTMAN -->
   <div class="case-section reveal">
     <span class="case-section-label">↳ API Testing</span>
-    <h2 class="case-section-title">Postman &<br><em>APIs bancárias</em></h2>
+    <h2 class="case-section-title">Postman &<br><em>APIs</em></h2>
     <p>
-      Coleções Postman para validação de 120+ endpoints REST das APIs bancárias: autenticação OAuth 2.0, consulta de saldo e limite, emissão de segunda via, histórico de transações e webhooks de pagamento.
+      Montei coleções no Postman pra testar as APIs REST: ambientes separados por fase, script de pré-request pra gerar token e asserção no formato da resposta.
     </p>
     <p>
-      Uso de environments por ambiente (dev/homologação/produção), scripts de pré-request para geração de tokens dinâmicos e scripts de teste para validação de schemas de resposta.
+      Levei a ideia pros meus projetos: o app da clínica tem teste que barra a versão nova se o bot voltar a citar preço.
     </p>
   </div>
 
@@ -200,7 +200,7 @@
     <span class="case-section-label">↳ BDD & Gherkin</span>
     <h2 class="case-section-title">Especificações<br><em>executáveis</em></h2>
     <p>
-      Escrita de cenários BDD em Gherkin para documentar e validar regras de negócio com times de produto, desenvolvimento e QA. Cenários serviam como contrato vivo entre as áreas.
+      Escrevi cenários BDD em Gherkin pra deixar a regra de negócio escrita de um jeito que produto, dev e QA liam igual. O exemplo abaixo também é ilustrativo.
     </p>
   </div>
 
@@ -211,12 +211,12 @@
         <div class="code-dot" style="background:#FEBC2E"></div>
         <div class="code-dot" style="background:#28C840"></div>
       </div>
-      <span class="code-block-label">features/limite.feature</span>
+      <span class="code-block-label">exemplo · features/limite.feature</span>
     </div>
     <div class="code-block-body">
       <span class="kw">Funcionalidade:</span> Consulta de Limite do Cartão<br><br>
       &nbsp;&nbsp;<span class="kw">Contexto:</span><br>
-      &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Dado</span> que o cliente está autenticado no app BRB Card<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Dado</span> que o cliente está autenticado no app<br><br>
       &nbsp;&nbsp;<span class="kw">Cenário:</span> Cliente consulta limite disponível<br>
       &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Quando</span> o cliente acessa a tela de limite<br>
       &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">Então</span> deve ver o limite total e o limite disponível<br>
@@ -229,45 +229,30 @@
     </div>
   </div>
 
-  <!-- CI/CD -->
-  <div class="case-section reveal">
-    <span class="case-section-label">↳ CI/CD</span>
-    <h2 class="case-section-title">GitHub Actions &<br><em>pipeline de testes</em></h2>
-    <p>
-      Integração da suite Cypress ao pipeline GitHub Actions. Testes disparados automaticamente em push para branches de feature e obrigatoriamente em PRs para main. Relatórios de falha enviados ao canal do time.
-    </p>
-    <p>
-      Paralelização dos testes em múltiplas máquinas para reduzir tempo de feedback no CI. Uso de Cypress Cloud para gravação de vídeos das execuções com falha.
-    </p>
-  </div>
-
   <!-- TECH STACK -->
   <div class="case-section reveal">
     <span class="case-section-label">↳ Stack utilizado</span>
     <h2 class="case-section-title">Tecnologias</h2>
     <div class="case-tech-grid">
-      <span class="tag">Cypress 12</span>
+      <span class="tag">Cypress</span>
       <span class="tag">Postman / Newman</span>
-      <span class="tag">GitHub Actions</span>
       <span class="tag-plain">BDD / Gherkin</span>
       <span class="tag-plain">Cucumber</span>
       <span class="tag-plain">ISTQB CTFL</span>
       <span class="tag-plain">ISTQB Agile</span>
       <span class="tag-plain">REST APIs</span>
-      <span class="tag-plain">OAuth 2.0</span>
-      <span class="tag-plain">Cypress Cloud</span>
     </div>
   </div>
 
   <!-- RESULTADO -->
   <div class="case-section reveal">
     <span class="case-section-label">↳ Impacto</span>
-    <h2 class="case-section-title">O que<br><em>foi alcançado</em></h2>
+    <h2 class="case-section-title">O que<br><em>ficou</em></h2>
     <p>
-      Cobertura automatizada dos fluxos críticos do produto, reduzindo regressões em produção. Pipeline CI confiável com feedback imediato a cada push. Cenários BDD como documentação viva das regras de negócio, acessível a todos os times.
+      Mais de 80 casos de teste escritos e as duas certificações ISTQB (CTFL e Agile Tester).
     </p>
     <p>
-      Experiência em sistema financeiro real — com os padrões de qualidade, rastreabilidade e segurança que esse contexto exige. Essa mentalidade de QA está presente em todos os projetos web que entrego hoje.
+      Levo o mesmo cuidado pros meus projetos: nada sai sem eu testar no celular, no desktop, com o console limpo e com checklist.
     </p>
   </div>
 
@@ -290,7 +275,7 @@
   </a>
   <a href="mp.html" class="case-nav-item next reveal" data-delay="60">
     <span class="case-nav-dir">Próximo case →</span>
-    <span class="case-nav-title">Claude <em>Code Pipeline</em></span>
+    <span class="case-nav-title">MP <em>Soluções</em></span>
   </a>
 </div>
 
@@ -298,7 +283,7 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
-      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">Dev + IA · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
+      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">QA e dev · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
     </div>
     <div class="footer-col">
       <h4>Navegar</h4>
