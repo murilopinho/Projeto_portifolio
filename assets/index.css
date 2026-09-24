@@ -302,11 +302,6 @@
 .status-dot-wip  {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--accent);
-  animation: pulse-blue 2s infinite;
-}
-@keyframes pulse-blue {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(59,111,255,0.4); }
-  50%       { box-shadow: 0 0 0 4px rgba(59,111,255,0); }
 }
 
 /* ── DEPOIMENTO ── */
@@ -551,7 +546,7 @@
   text-transform: uppercase;
   color: #22c55e;
 }
-.tl-cv { margin-top: 48px; }
+.tl-cv { margin-top: 48px; display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* ── STATS RIBBON ── */
 #stats {
@@ -643,6 +638,7 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  .cap-segments { margin-top: 0; }
   .hero-foot { grid-template-columns: 1fr; }
   .hero-foot-ctas { justify-content: flex-start; }
   .hero-cta-hint { grid-column: 1; text-align: left; }
@@ -667,3 +663,5 @@
 
 /* imagem cobre o placeholder; se falhar (onerror some com ela), o placeholder aparece */
 .work-right .work-mockup { position: absolute; inset: 0; }
+.work-mockup:not([style*="none"]) + .work-mockup-placeholder { visibility: hidden; }
+.work-status { z-index: 1; }

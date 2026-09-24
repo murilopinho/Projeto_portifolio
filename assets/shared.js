@@ -7,22 +7,26 @@
   const dot  = document.getElementById('cursor-dot');
   const ring = document.getElementById('cursor-ring');
   if (!dot || !ring) return;
+  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  document.documentElement.classList.add('has-cursor');
 
-  let mx = 0, my = 0, rx = 0, ry = 0;
+  let mx = 0, my = 0, rx = 0, ry = 0, running = false;
+  const place = (el, x, y) => { el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`; };
+
+  // transform não força layout; o loop só roda enquanto o anel está alcançando o mouse
+  function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    place(ring, rx, ry);
+    if (Math.abs(mx - rx) + Math.abs(my - ry) > 0.5) requestAnimationFrame(animRing);
+    else running = false;
+  }
 
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
-    dot.style.left  = mx + 'px';
-    dot.style.top   = my + 'px';
+    place(dot, mx, my);
+    if (!running) { running = true; requestAnimationFrame(animRing); }
   });
-
-  (function animRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(animRing);
-  })();
 
   document.addEventListener('mouseover', e => {
     const t = e.target.closest('a, button, [data-cursor]');
@@ -116,10 +120,10 @@ setInterval(updateClock, 1000);
 
     a.addEventListener('click', e => {
       e.preventDefault();
-      overlay.style.transition = 'transform 0.4s cubic-bezier(0.76, 0, 0.24, 1)';
+      overlay.style.transition = 'transform 0.2s cubic-bezier(0.76, 0, 0.24, 1)';
       overlay.style.transformOrigin = 'left';
       overlay.style.transform = 'scaleX(1)';
-      setTimeout(() => { window.location.href = href; }, 420);
+      setTimeout(() => { window.location.href = href; }, 200);
     });
   });
 
@@ -128,7 +132,7 @@ setInterval(updateClock, 1000);
     overlay.style.transformOrigin = 'right';
     overlay.style.transform = 'scaleX(1)';
     requestAnimationFrame(() => {
-      overlay.style.transition = 'transform 0.5s cubic-bezier(0.76, 0, 0.24, 1)';
+      overlay.style.transition = 'transform 0.3s cubic-bezier(0.76, 0, 0.24, 1)';
       overlay.style.transform  = 'scaleX(0)';
     });
   });
