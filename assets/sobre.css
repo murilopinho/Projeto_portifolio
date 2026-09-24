@@ -265,7 +265,7 @@
   margin-bottom: 12px;
 }
 .cv-cta-sub { font-size: 14px; color: var(--mid); }
-.cv-cta-actions { display: flex; gap: 12px; }
+.cv-cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {

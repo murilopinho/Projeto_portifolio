@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="canonical" href="https://murilopinho.com.br/">
   <title>Murilo Pinho · QA e dev em Brasília</title>
+  <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
   <meta name="description" content="QA com 18 meses de BRB Card e dev de sites, bots de WhatsApp e apps desktop. Brasília, DF.">
 
   <meta property="og:title"       content="Murilo Pinho · QA e dev em Brasília">
@@ -66,8 +67,11 @@
 <div id="cursor-ring"></div>
 <div id="page-overlay"></div>
 
+<script>try{if(sessionStorage.getItem("seen-loader"))document.documentElement.classList.add("no-loader")}catch(e){}</script>
 <div id="loader">
-  <canvas id="loader-canvas" width="140" height="140"></canvas>
+  <div id="loader-cube" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span class="logo">M<b>P</b></span><span></span>
+  </div>
   <div id="loader-label">M·P · Soluções Digitais</div>
   <div id="loader-status">CARREGANDO...</div>
   <div id="loader-bar-wrap">
@@ -202,6 +206,7 @@
       </div>
     </div>
     <div class="work-right">
+      <img src="screenshots/atendimento.webp" alt="Ilustração do sistema de atendimento no WhatsApp" class="work-mockup" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
       <div class="work-mockup-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--mid);text-align:left;padding:32px;">
         <div style="line-height:1.9;">
           <span style="color:var(--mid)">// test_bot_sem_preco.js</span><br>
@@ -309,6 +314,7 @@
       </div>
     </div>
     <div class="work-right">
+      <img src="screenshots/fly-reflex.webp" alt="Ilustração de uma mosca jogando no computador" class="work-mockup" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
       <div class="work-mockup-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--mid);text-align:left;padding:32px;">
         <div style="line-height:1.9;">
           <span style="color:var(--accent)">$</span> ./start.sh --demo<br>
@@ -348,6 +354,7 @@
       </div>
     </div>
     <div class="work-right">
+      <img src="screenshots/qa-brb.webp" alt="Ilustração do resumo dos 18 meses de QA no BRB Card" class="work-mockup" style="object-fit:contain" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
       <div class="work-mockup-placeholder" style="font-family:var(--font-mono);font-size:11px;color:var(--accent);text-align:left;padding:32px;">
         <div style="line-height:1.8;opacity:0.8">
           <span style="color:var(--mid)">// exemplo de teste E2E</span><br>
@@ -520,6 +527,9 @@
     <a href="uploads/murilo-pinho-cv.pdf" download class="btn-secondary">
       ↓ Download CV completo
     </a>
+    <a href="uploads/murilo-pinho-cv-en.pdf" download class="btn-secondary" lang="en">
+      ↓ CV in English
+    </a>
   </div>
 </section>
 
@@ -595,18 +605,6 @@
   </div>
 </footer>
 
-<script
-  src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"
-  integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu"
-  crossorigin="anonymous"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-  integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
-  crossorigin="anonymous"></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-  integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
-  crossorigin="anonymous"></script>
 
 <script src="assets/shared.js"></script>
 <script src="assets/index.js"></script>
