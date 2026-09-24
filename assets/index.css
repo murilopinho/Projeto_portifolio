@@ -26,7 +26,7 @@
 }
 .hero-meta-item {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mid);
@@ -86,7 +86,7 @@
 .hero-cta-hint {
   grid-column: 3;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent);
@@ -119,7 +119,7 @@
 .ticker-item .ticker-tag {
   font-family: var(--font-mono);
   font-style: normal;
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--accent);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -137,7 +137,7 @@
 }
 .manifesto-eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
@@ -154,7 +154,7 @@
 }
 .manifesto-byline {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--mid);
@@ -180,7 +180,7 @@
 }
 .works-count {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mid);
@@ -198,7 +198,7 @@
 .work-item:hover { border-color: var(--line-2); }
 .work-eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mid);
@@ -243,7 +243,7 @@
 }
 .work-metric-label {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--mid);
@@ -276,7 +276,7 @@
   gap: 16px;
   color: var(--mid);
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-11);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-align: center;
@@ -294,7 +294,7 @@
   padding: 6px 12px;
   border-radius: 100px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -345,7 +345,7 @@
 }
 .depo-role {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mid);
@@ -367,7 +367,7 @@
 .cap-segments {
   width: 100%;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: var(--fs-11);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--mid);
@@ -390,7 +390,7 @@
 }
 .cap-col-num {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.3em;
   color: var(--accent);
   margin-bottom: 8px;
@@ -413,7 +413,7 @@
 .cap-skill-name { font-size: 14px; color: var(--fg); }
 .cap-skill-level {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--mid);
@@ -428,7 +428,7 @@
 .tl-header { margin-bottom: 80px; }
 .tl-eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--accent);
@@ -463,7 +463,7 @@
 }
 .tl-year {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.2em;
   color: var(--mid);
 }
@@ -482,7 +482,7 @@
 .tl-job:hover { border-color: var(--line-2); }
 .tl-job-period {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -513,7 +513,7 @@
 .tl-certs { margin-top: 64px; }
 .tl-certs-title {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--mid);
@@ -541,7 +541,7 @@
 .tl-cert-name { font-size: 13px; font-weight: 500; color: var(--fg); }
 .tl-cert-status {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: var(--fs-9);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #22c55e;
@@ -574,7 +574,7 @@
 }
 .stat-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mid);
@@ -610,7 +610,7 @@
 .cta-title span { display: block; }
 .cta-location {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: var(--fs-10);
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--accent);

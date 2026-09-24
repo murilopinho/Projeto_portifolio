@@ -61,7 +61,7 @@
   <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
-  <a href="#main" class="skip-link" style="position:absolute;top:-40px;left:16px;background:#3b82f6;color:#fff;padding:8px 16px;border-radius:4px;font-weight:600;z-index:10000;transition:top .2s ease;text-decoration:none;font-family:monospace" onfocus="this.style.top='8px'" onblur="this.style.top='-40px'">Pular para o conteúdo</a>
+  <a href="#main" class="skip-link">Pular para o conteúdo</a>
 
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
@@ -85,10 +85,10 @@
     <span class="nav-name">Murilo Pinho</span>
   </div>
   <div class="nav-center">
-    <a href="index.html">Index</a>
-    <a href="trabalhos.html">Trabalhos</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="contato.html">Contato</a>
+    <a href="/">Index</a>
+    <a href="/trabalhos">Trabalhos</a>
+    <a href="/sobre">Sobre</a>
+    <a href="/contato">Contato</a>
   </div>
   <div class="nav-right">
     <span class="nav-clock"></span>
@@ -96,17 +96,17 @@
       <span class="dot-green"></span>
       Aberto a vagas e projetos
     </div>
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile-menu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
 <div id="nav-mobile-menu">
-  <a href="index.html">Index</a>
-  <a href="trabalhos.html">Trabalhos</a>
-  <a href="sobre.html">Sobre</a>
-  <a href="contato.html">Contato</a>
+  <a href="/">Index</a>
+  <a href="/trabalhos">Trabalhos</a>
+  <a href="/sobre">Sobre</a>
+  <a href="/contato">Contato</a>
 </div>
 
 <section id="main"></section>
@@ -116,9 +116,9 @@
   <div class="hero-meta reveal">
     <div class="hero-meta-item">
       ↳ QA + Dev / MP Soluções<br>
-      <span class="dot-avail"><span class="dot-green" style="display:inline-block"></span> Aberto a vagas e projetos</span>
+      <span class="dot-avail"><span class="dot-green u-inline-block"></span> Aberto a vagas e projetos</span>
     </div>
-    <div class="hero-meta-item" style="text-align:right">
+    <div class="hero-meta-item u-right">
       BRASÍLIA · DF · BR<br>
       ISTQB CTFL
     </div>
@@ -206,16 +206,16 @@
       </div>
     </div>
     <div class="work-right">
-      <img src="screenshots/atendimento.webp" alt="Ilustração do sistema de atendimento no WhatsApp" class="work-mockup" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
-      <div class="work-mockup-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--mid);text-align:left;padding:32px;">
-        <div style="line-height:1.9;">
-          <span style="color:var(--mid)">// test_bot_sem_preco.js</span><br>
-          <span style="color:var(--mid)">// o bot NUNCA informa preço, só o dentista</span><br>
+      <img src="screenshots/atendimento.webp" alt="Ilustração do sistema de atendimento no WhatsApp" class="work-mockup" loading="lazy" width="1280" height="698">
+      <div class="work-mockup-placeholder ph-code-block">
+        <div class="code-lines-loose">
+          <span class="u-mid">// test_bot_sem_preco.js</span><br>
+          <span class="u-mid">// o bot NUNCA informa preço, só o dentista</span><br>
           for (const arq of bots) {<br>
           &nbsp;&nbsp;const src = fs.readFileSync(arq, 'utf8')<br>
-          &nbsp;&nbsp;assert(!<span style="color:var(--accent)">/R\$\s*\d/</span>.test(src))<br>
+          &nbsp;&nbsp;assert(!<span class="u-accent">/R\$\s*\d/</span>.test(src))<br>
           }<br>
-          <span style="color:#22c55e">✓</span> OK: nenhum preço hardcoded nos bots
+          <span class="u-green">✓</span> OK: nenhum preço hardcoded nos bots
         </div>
       </div>
       <div class="work-status"><span class="status-dot-live"></span> v0.4.12</div>
@@ -245,11 +245,11 @@
       </div>
       <div class="work-links">
         <a href="https://mirantes-da-ilha-beta.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-primary">Visitar site ↗</a>
-        <a href="case/mirantes.html" class="btn-secondary">Ver case ↗</a>
+        <a href="/case/mirantes" class="btn-secondary">Ver case ↗</a>
       </div>
     </div>
     <div class="work-right">
-      <img src="screenshots/mirantes-hero.jpg" alt="Mirantes do Lago, mapa 3D dos lotes" class="work-mockup" onerror="this.style.display='none'">
+      <img src="screenshots/mirantes-hero.jpg" alt="Mirantes do Lago, mapa 3D dos lotes" class="work-mockup">
       <div class="work-mockup-placeholder">
         <span>Mirantes do Lago<br>Mapa 3D</span>
       </div>
@@ -283,7 +283,7 @@
       </div>
     </div>
     <div class="work-right">
-      <img src="screenshots/isaac-mods.png" alt="Arte dos mods de Isaac, desenhada à mão" class="work-mockup" style="object-fit:contain;background:#fff" onerror="this.style.display='none'">
+      <img src="screenshots/isaac-mods.png" alt="Arte dos mods de Isaac, desenhada à mão" class="work-mockup img-contain img-white">
       <div class="work-mockup-placeholder">
         <span>Mods de Isaac</span>
       </div>
@@ -314,14 +314,14 @@
       </div>
     </div>
     <div class="work-right">
-      <img src="screenshots/fly-reflex.webp" alt="Ilustração de uma mosca jogando no computador" class="work-mockup" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
-      <div class="work-mockup-placeholder" style="font-family:var(--font-mono);font-size:10px;color:var(--mid);text-align:left;padding:32px;">
-        <div style="line-height:1.9;">
-          <span style="color:var(--accent)">$</span> ./start.sh --demo<br>
-          <span style="color:#22c55e">✓</span> 668 neurônios · ~19k sinapses reais<br>
-          <span style="color:#22c55e">✓</span> simulação LIF a 1 kHz<br>
-          <span style="color:var(--accent)">→</span> KEYBOARD: YOURS<br>
-          <span style="color:var(--mid)">F9 arma a mosca · qualquer tecla devolve</span>
+      <img src="screenshots/fly-reflex.webp" alt="Ilustração de uma mosca jogando no computador" class="work-mockup" loading="lazy" width="1280" height="698">
+      <div class="work-mockup-placeholder ph-code-block">
+        <div class="code-lines-loose">
+          <span class="u-accent">$</span> ./start.sh --demo<br>
+          <span class="u-green">✓</span> 668 neurônios · ~19k sinapses reais<br>
+          <span class="u-green">✓</span> simulação LIF a 1 kHz<br>
+          <span class="u-accent">→</span> KEYBOARD: YOURS<br>
+          <span class="u-mid">F9 arma a mosca · qualquer tecla devolve</span>
         </div>
       </div>
       <div class="work-status"><span class="status-dot-wip"></span> EM CALIBRAÇÃO</div>
@@ -350,25 +350,25 @@
         </div>
       </div>
       <div class="work-links">
-        <a href="case/qa-brb.html" class="btn-secondary">Ver case ↗</a>
+        <a href="/case/qa-brb" class="btn-secondary">Ver case ↗</a>
       </div>
     </div>
     <div class="work-right">
-      <img src="screenshots/qa-brb.webp" alt="Ilustração do resumo dos 18 meses de QA no BRB Card" class="work-mockup" style="object-fit:contain" loading="lazy" width="1280" height="698" onerror="this.style.display='none'">
-      <div class="work-mockup-placeholder" style="font-family:var(--font-mono);font-size:11px;color:var(--accent);text-align:left;padding:32px;">
-        <div style="line-height:1.8;opacity:0.8">
-          <span style="color:var(--mid)">// exemplo de teste E2E</span><br>
-          <span style="color:var(--mid)">describe(</span>'Login'<span style="color:var(--mid)">, () =&gt; {</span><br>
-          &nbsp;&nbsp;<span style="color:var(--mid)">it(</span>'deve autenticar'<span style="color:var(--mid)">, () =&gt; {</span><br>
+      <img src="screenshots/qa-brb.webp" alt="Ilustração do resumo dos 18 meses de QA no BRB Card" class="work-mockup img-contain" loading="lazy" width="1280" height="698">
+      <div class="work-mockup-placeholder ph-code-block ph-code-accent">
+        <div class="code-lines-soft">
+          <span class="u-mid">// exemplo de teste E2E</span><br>
+          <span class="u-mid">describe(</span>'Login'<span class="u-mid">, () =&gt; {</span><br>
+          &nbsp;&nbsp;<span class="u-mid">it(</span>'deve autenticar'<span class="u-mid">, () =&gt; {</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;cy.visit('/login')<br>
           &nbsp;&nbsp;&nbsp;&nbsp;cy.get('[data-cy=cpf]').type('...')<br>
           &nbsp;&nbsp;&nbsp;&nbsp;cy.get('[data-cy=submit]').click()<br>
           &nbsp;&nbsp;&nbsp;&nbsp;cy.url().should('include', '/dashboard')<br>
-          &nbsp;&nbsp;<span style="color:var(--mid)">})</span><br>
-          <span style="color:var(--mid)">})</span>
+          &nbsp;&nbsp;<span class="u-mid">})</span><br>
+          <span class="u-mid">})</span>
         </div>
       </div>
-      <div class="work-status"><span style="color:var(--mid);font-size:10px;">■</span> BRB CARD · NOV/2024–ABR/2026</div>
+      <div class="work-status"><span class="u-mid u-tiny">■</span> BRB CARD · NOV/2024–ABR/2026</div>
     </div>
   </div>
 </section>
@@ -512,13 +512,13 @@
       </div>
       <div class="tl-cert">
         <div class="tl-cert-badge">✦</div>
-        <div class="tl-cert-name">10× Anthropic<br><small style="font-size:11px;color:var(--mid)">(Claude / MCP / Subagents)</small></div>
+        <div class="tl-cert-name">10× Anthropic<br><small class="u-note">(Claude / MCP / Subagents)</small></div>
         <div class="tl-cert-status">● ativo</div>
       </div>
       <div class="tl-cert">
         <div class="tl-cert-badge">◈</div>
-        <div class="tl-cert-name">ADS + IA/ML<br><small style="font-size:11px;color:var(--mid)">SENAC · em andamento</small></div>
-        <div class="tl-cert-status" style="color:var(--mid)">○ cursando</div>
+        <div class="tl-cert-name">ADS + IA/ML<br><small class="u-note">SENAC · em andamento</small></div>
+        <div class="tl-cert-status u-mid">○ cursando</div>
       </div>
     </div>
   </div>
@@ -567,7 +567,7 @@
   </p>
   <div class="cta-actions reveal" data-delay="160">
     <a href="https://wa.me/5561998332564" target="_blank" rel="noopener noreferrer" class="btn-primary">WhatsApp ↗</a>
-    <a href="contato.html" class="btn-secondary">Formulário ↗</a>
+    <a href="/contato" class="btn-secondary">Formulário ↗</a>
   </div>
 </section>
 
@@ -575,17 +575,17 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
-      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">
+      <p class="footer-tagline">
         QA e dev · MP Soluções Digitais<br>Brasília, DF · Brasil
       </p>
     </div>
     <div class="footer-col">
       <h4>Navegar</h4>
       <ul>
-        <li><a href="index.html">Index</a></li>
-        <li><a href="trabalhos.html">Trabalhos</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="contato.html">Contato</a></li>
+        <li><a href="/">Index</a></li>
+        <li><a href="/trabalhos">Trabalhos</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="/contato">Contato</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -599,7 +599,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Murilo Pinho · MP Soluções Digitais</span>
+    <span>© 2026 Murilo Pinho · MP Soluções Digitais · <a href="/privacidade">Privacidade</a></span>
     <span class="nav-clock"></span>
     <span class="footer-built">built with <span>Claude Code</span></span>
   </div>

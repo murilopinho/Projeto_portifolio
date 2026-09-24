@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Case: Mirantes do Lago · Murilo Pinho</title>
+  <link rel="canonical" href="https://murilopinho.com.br/case/mirantes">
   <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
   <meta name="description" content="Case do site do loteamento Mirantes do Lago: mapa 3D com 83 lotes feito em cima da planta real, em Three.js.">
 
@@ -21,33 +22,33 @@
 
 <nav id="nav">
   <div class="nav-left">
-    <a href="../index.html" class="nav-logo"><span>M</span><span>P</span></a>
+    <a href="/" class="nav-logo"><span>M</span><span>P</span></a>
     <span class="nav-name">Murilo Pinho</span>
   </div>
   <div class="nav-center">
-    <a href="../index.html">Index</a>
-    <a href="../trabalhos.html">Trabalhos</a>
-    <a href="../sobre.html">Sobre</a>
-    <a href="../contato.html">Contato</a>
+    <a href="/">Index</a>
+    <a href="/trabalhos">Trabalhos</a>
+    <a href="/sobre">Sobre</a>
+    <a href="/contato">Contato</a>
   </div>
   <div class="nav-right">
     <span class="nav-clock"></span>
     <div class="nav-avail"><span class="dot-green"></span>Disponível</div>
-    <button class="nav-hamburger" id="nav-hamburger"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div id="nav-mobile-menu">
-  <a href="../index.html">Index</a>
-  <a href="../trabalhos.html">Trabalhos</a>
-  <a href="../sobre.html">Sobre</a>
-  <a href="../contato.html">Contato</a>
+  <a href="/">Index</a>
+  <a href="/trabalhos">Trabalhos</a>
+  <a href="/sobre">Sobre</a>
+  <a href="/contato">Contato</a>
 </div>
 
 <!-- HERO -->
 <section class="case-hero">
-  <div class="case-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80&fit=crop&auto=format')"></div><!-- FOTO BANCO — substituir por screenshot real do site -->
+  <div class="case-hero-bg case-hero-bg--mirantes"></div><!-- FOTO BANCO — substituir por screenshot real do site -->
   <div class="case-hero-content">
-    <a href="../index.html#works" class="case-back reveal">← Todos os projetos</a>
+    <a href="/#works" class="case-back reveal">← Todos os projetos</a>
     <span class="case-eyebrow reveal" data-delay="60">↳ case · site · 3D</span>
     <h1 class="case-hero-title reveal" data-delay="120">
       Mirantes<br><em>do Lago</em>
@@ -67,7 +68,7 @@
       </div>
       <div class="case-meta-item">
         <span class="case-meta-label">Status</span>
-        <span class="case-meta-value" style="color:#22c55e">● No ar (beta)</span>
+        <span class="case-meta-value u-green">● No ar (beta)</span>
       </div>
     </div>
   </div>
@@ -112,7 +113,6 @@
       alt="Mirantes do Lago — Hero com vista aérea da represa"
       loading="lazy"
       width="900" height="506"
-      onerror="this.parentElement.style.background='var(--bg-2)';this.style.display='none'"
     >
     <div class="case-img-caption">↳ Hero, vista do reservatório de Queimado</div>
   </div>
@@ -136,7 +136,6 @@
       alt="Mirantes do Lago — Mapa 3D interativo dos lotes"
       loading="lazy"
       width="900" height="506"
-      onerror="this.parentElement.style.background='var(--bg-2)';this.style.display='none'"
     >
     <div class="case-img-caption">↳ Mapa 3D dos lotes em Three.js r128</div>
   </div>
@@ -180,7 +179,6 @@
       alt="Mirantes do Lago — Vista dos terrenos à beira da represa"
       loading="lazy"
       width="900" height="506"
-      onerror="this.parentElement.style.background='var(--bg-2)';this.style.display='none'"
     >
     <div class="case-img-caption">↳ Seção de lotes, terrenos na beira d'água</div>
   </div>
@@ -193,17 +191,17 @@
       O site está no ar numa URL da Vercel enquanto o domínio próprio não fica pronto. Falta o dono mandar o WhatsApp do corretor e o status real de cada lote.
     </p>
     
-    <div class="case-tech-grid" style="margin-top:24px">
-      <span class="tag" style="color:#22c55e;border-color:rgba(34,197,94,0.3)">● No ar (beta)</span>
+    <div class="case-tech-grid u-mt24">
+      <span class="tag tag-live">● No ar (beta)</span>
     </div>
   </div>
 
   <!-- CTA -->
-  <div class="case-section reveal" style="text-align:center;padding:48px 0">
-    <p style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--mid);margin-bottom:24px;">↳ Quer um site assim?</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+  <div class="case-section reveal case-cta">
+    <p class="cta-band-eyebrow">↳ Quer um site assim?</p>
+    <div class="cta-band-actions">
       <a href="https://mirantes-da-ilha-beta.vercel.app" target="_blank" rel="noopener" class="btn-primary">Visitar o site ↗</a>
-      <a href="../contato.html" class="btn-secondary">Falar sobre meu projeto ↗</a>
+      <a href="/contato" class="btn-secondary">Falar sobre meu projeto ↗</a>
     </div>
   </div>
 
@@ -211,11 +209,11 @@
 
 <!-- CASE NAV -->
 <div class="case-nav">
-  <a href="../index.html#works" class="case-nav-item reveal">
+  <a href="/#works" class="case-nav-item reveal">
     <span class="case-nav-dir">← Todos os cases</span>
     <span class="case-nav-title">Ver todos</span>
   </a>
-  <a href="qa-brb.html" class="case-nav-item next reveal" data-delay="60">
+  <a href="/case/qa-brb" class="case-nav-item next reveal" data-delay="60">
     <span class="case-nav-dir">Próximo case →</span>
     <span class="case-nav-title">QA <em>BRB Card</em></span>
   </a>
@@ -226,20 +224,21 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand-name">Murilo<br><em>pinho</em></div>
-      <p style="font-size:13px;color:var(--mid);margin-top:16px;line-height:1.6;">QA e dev · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
+      <p class="footer-tagline">QA e dev · MP Soluções Digitais<br>Brasília, DF · Brasil</p>
     </div>
     <div class="footer-col">
       <h4>Navegar</h4>
       <ul>
-        <li><a href="../index.html">Index</a></li>
-        <li><a href="../trabalhos.html">Trabalhos</a></li>
-        <li><a href="../sobre.html">Sobre</a></li>
-        <li><a href="../contato.html">Contato</a></li>
+        <li><a href="/">Index</a></li>
+        <li><a href="/trabalhos">Trabalhos</a></li>
+        <li><a href="/sobre">Sobre</a></li>
+        <li><a href="/contato">Contato</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Contato</h4>
       <ul>
+        <li><a href="tel:+5561998332564">(61) 9 9833-2564</a></li>
         <li><a href="mailto:mmurilo.pinho@gmail.com">E-mail</a></li>
         <li><a href="https://wa.me/5561998332564" target="_blank" rel="noopener">WhatsApp</a></li>
         <li><a href="https://linkedin.com/in/murilopinho" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -247,7 +246,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Murilo Pinho · MP Soluções Digitais</span>
+    <span>© 2026 Murilo Pinho · MP Soluções Digitais · <a href="/privacidade">Privacidade</a></span>
     <span class="nav-clock"></span>
     <span class="footer-built">built with <span>Claude Code</span></span>
   </div>
