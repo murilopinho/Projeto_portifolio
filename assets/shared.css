@@ -26,6 +26,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
+  -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -402,8 +403,6 @@ html:not(.has-cursor) #cursor-ring { display: none; }
   letter-spacing: 0.1em;
   color: var(--dim);
 }
-.footer-built { color: var(--dim); }
-.footer-built span { color: var(--accent); }
 
 /* --- RESPONSIVE NAV --- */
 @media (max-width: 768px) {
