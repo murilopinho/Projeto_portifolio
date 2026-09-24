@@ -604,6 +604,7 @@
   .stat-cell:nth-child(2) { border-right: none; }
   .stat-cell:nth-child(3) { border-right: 1px solid var(--line); }
   .works-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .ticker-track { animation-duration: 90s; }
 }
 @media (max-width: 600px) {
   .hero-meta { flex-direction: column; gap: 12px; }
