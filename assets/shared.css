@@ -43,7 +43,8 @@ body {
 .has-cursor, .has-cursor button { cursor: none; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  /* iteration 1: com duração 0.01ms e `infinite`, letreiro e cubo giravam ~100 mil vezes/s */
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   html { scroll-behavior: auto; }
 }
 
